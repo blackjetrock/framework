@@ -30,12 +30,16 @@ const uint PIN_VBAT_SW_ON = 27;
 void oledmain(void);
 
 int main() {
+  sleep_ms(2000);
 
-    // Main loop
-    while(1)
-      {
-	
-      }
-    
+  stdio_init_all();
+  printf("\nMacropad 1");
+  
+  // Main loop
+  while(1)
+    {
+      serial_loop();
+    }
+  
 }
 
