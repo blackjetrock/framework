@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
+#include "hardware/adc.h"
 #include "pico/binary_info.h"
+
+#include "macropad.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -10,20 +13,85 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-const uint PIN_SDAOUT     = 14;
-const uint PIN_LATCHOUT2  = 15;
-const uint PIN_I2C_SDA    = 16;
-const uint PIN_I2C_SCL    = 17;
-const uint PIN_LS_DIR     = 18;
-const uint PIN_LATCHIN    = 19;
-const uint PIN_SCLKIN     = 20;
-const uint PIN_SDAIN      = 21;
-const uint PIN_LATCHOUT1  = 22;
-const uint PIN_SCLKOUT    = 26;
-const uint PIN_VBAT_SW_ON = 27;
+const uint PIN_MUX_ENABLE = 4;
+const uint PIN_MUX_A      = 1;
+const uint PIN_MUX_B      = 2;
+const uint PIN_MUX_C      = 3;
+
+const uint PIN_UNUSED1  = 5;
+const uint PIN_UNUSED2  = 6;
+
+const uint PIN_KD0  = 8;
+const uint PIN_KD1  = 9;
+const uint PIN_KD2  = 10;
+const uint PIN_KD3  = 11;
+const uint PIN_KD4  = 12;
+const uint PIN_KD5  = 13;
+const uint PIN_KD6  = 14;
+const uint PIN_KD7  = 15;
+const uint PIN_KD8  = 21;
+const uint PIN_KD9  = 20;
+const uint PIN_KD10 = 19;
+const uint PIN_KD11 = 18;
+const uint PIN_KD12 = 17;
+const uint PIN_KD13 = 16;
+const uint PIN_KD14 = 23;
+const uint PIN_KD15 = 22;
+
+const uint PIN_ADC  = 28;
 
 
+const int col[NUM_COL] =
+  {
+    PIN_KD0,
+    PIN_KD1,
+    PIN_KD2,
+    PIN_KD3,
+    PIN_KD4,
+    PIN_KD5,
+    PIN_KD6,
+    PIN_KD7,
+    PIN_KD8,
+    PIN_KD9,
+    PIN_KD10,
+    PIN_KD11,
+    PIN_KD12,
+    PIN_KD13,
+    PIN_KD14,
+    PIN_KD15,
+  };
 
+void gpio_set_out(int g)
+{
+  gpio_init(g);
+  gpio_set_dir(g, GPIO_OUT);
+  printf("\nSetting gpio %d to output", g);
+}
+
+void gpio_set_input(int g)
+{
+  gpio_init(g);
+  gpio_set_dir(g, GPIO_IN);
+}
+
+void init_gpios(void)
+{
+  for(int i=0; i<NUM_COL; i++)
+    {
+      gpio_set_out(col[i]);
+    }
+
+  gpio_set_out(PIN_MUX_ENABLE);
+  gpio_put(PIN_MUX_ENABLE, 0);
+  
+  gpio_set_out(PIN_MUX_A);
+  gpio_set_out(PIN_MUX_B);
+  gpio_set_out(PIN_MUX_C);
+
+  gpio_set_input(PIN_UNUSED1);
+  gpio_set_input(PIN_UNUSED2);
+  
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,9 +99,19 @@ void oledmain(void);
 void serial_loop(void);
 
 int main() {
-  sleep_ms(2000);
 
+
+
+  
   stdio_init_all();
+  sleep_ms(2000);
+  
+  adc_init();
+  adc_gpio_init(PIN_ADC);
+  adc_select_input(2);
+  gpio_pull_up(PIN_ADC);
+  init_gpios();
+  
   printf("\nMacropad 1");
   
   // Main loop

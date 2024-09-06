@@ -19,4 +19,4 @@ pico_enable_stdio_usb(macropad1 1)
 
 #pico_enable_stdio_uart(macropad1 1)
 pico_add_extra_outputs(macropad1)
-target_link_libraries(macropad1 pico_stdlib)
+target_link_libraries(macropad1 pico_stdlib hardware_adc hardware_gpio)
