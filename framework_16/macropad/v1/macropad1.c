@@ -28,6 +28,7 @@ const uint PIN_VBAT_SW_ON = 27;
 ////////////////////////////////////////////////////////////////////////////////
 
 void oledmain(void);
+void serial_loop(void);
 
 int main() {
   sleep_ms(2000);

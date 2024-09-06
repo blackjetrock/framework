@@ -180,7 +180,7 @@ SERIAL_COMMAND serial_cmds[] =
 //------------------------------------------------------------------------------
 
 
-void serial_loop()
+void serial_loop(void)
 {
   int key = KEY_NONE;
 

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
+set(PICO_SDK_PATH "/home/menadue/pico/pico-sdk")
 set(PICO_BOARD pico)
 
 include(pico_sdk_import.cmake)
