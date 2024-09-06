@@ -40,8 +40,6 @@
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/hardware_structs/CMakeFiles/edit_cache.dir
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/hardware_structs/CMakeFiles/rebuild_cache.dir
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default.dir
-/home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolForceReconfigure.dir
-/home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild.dir
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_bin.dir
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir
 /home/menadue/pico/framework/framework_16/macropad/v1/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/edit_cache.dir

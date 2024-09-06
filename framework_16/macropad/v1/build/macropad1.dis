@@ -925,8 +925,8 @@ Disassembly of section .text:
 100007ca:	425b      	negs	r3, r3
 100007cc:	9304      	str	r3, [sp, #16]
 100007ce:	9303      	str	r3, [sp, #12]
-100007d0:	332e      	adds	r3, #46	; 0x2e
-100007d2:	33ff      	adds	r3, #255	; 0xff
+100007d0:	23fa      	movs	r3, #250	; 0xfa
+100007d2:	009b      	lsls	r3, r3, #2
 100007d4:	4698      	mov	r8, r3
 100007d6:	9b11      	ldr	r3, [sp, #68]	; 0x44
 100007d8:	2600      	movs	r6, #0

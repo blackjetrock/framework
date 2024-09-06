@@ -188,7 +188,7 @@ void cli_scan(void)
       for(int r=0; r<NUM_ROW; r++)
 	{
 
-	  if( mat[c][r] <300 )
+	  if( mat[c][r] < 1000 )
 	    {
 	      printf("*  ");
 	      pc = c;
