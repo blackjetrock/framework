@@ -78,7 +78,8 @@ void i2c_init_il31(void)
   reg = 0xFD;
   data = 0x02;
   i2c_write_byte(&reg, &data);
-
+  data = i2c_read_byte(&reg);
+  printf("\nFD:%02X", data);
 
   reg = 0x00;
   data = i2c_read_byte(&reg);
@@ -121,7 +122,7 @@ void i2c_init_il31(void)
   for(int i = 1; i<= 0xC6; i++)
     {
       reg = i;
-      data = 0xC0;
+      data = 0xC1;
 
       i2c_write_byte(&reg, &data);
     }
@@ -139,5 +140,19 @@ void i2c_init_il31(void)
   data = i2c_read_byte(&reg);
 
   printf("\nConfig register:%02X", data);
+
+  
+  reg = 0xFE;
+  data = i2c_read_byte(&reg);
+  printf("\nUnlock register:%02X", data);
+
+  i2c_unlock_il31();
+
+  reg = 0xFD;
+  data = 0x00;
+  i2c_write_byte(&reg, &data);
+  reg = 0x01;
+  data = i2c_read_byte(&reg);
+  printf("\nPG0:0x00:%02X", data);
 }
 
