@@ -88,8 +88,9 @@ void i2c_init_il31(void)
   data = 0x71;
   i2c_write_byte(&reg, &data);
 
+  // Global current
   reg = 0x01;
-  data = 0xFF;
+  data = 170;
   i2c_write_byte(&reg, &data);
 
   reg = 0x02;
