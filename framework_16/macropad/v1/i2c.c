@@ -91,7 +91,7 @@ void i2c_init_il31(void)
 
   // Global current
   reg = 0x01;
-  data = 170;
+  data = 70;
   i2c_write_byte(&reg, &data);
 
   reg = 0x02;
@@ -106,10 +106,11 @@ void i2c_init_il31(void)
   data = 0x00;
   i2c_write_byte(&reg, &data);
 
+  data = 0;
   for(int i = 1; i<= 0xC6; i++)
     {
       reg = i;
-      data = 0xC0;
+      data +=13;
 
       i2c_write_byte(&reg, &data);
     }
@@ -122,7 +123,7 @@ void i2c_init_il31(void)
   for(int i = 1; i<= 0xC6; i++)
     {
       reg = i;
-      data = 0xC1;
+      data += 17;
 
       i2c_write_byte(&reg, &data);
     }
