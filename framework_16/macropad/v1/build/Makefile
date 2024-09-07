@@ -992,6 +992,30 @@ home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 .PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj: home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj
+
+# target to build an object file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
+
+# target to preprocess a source file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
+
+# target to generate assembly for a file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+
 home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 .PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj
 
@@ -1912,6 +1936,30 @@ home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 .PHONY : home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 
+i2c.obj: i2c.c.obj
+.PHONY : i2c.obj
+
+# target to build an object file
+i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/i2c.c.obj
+.PHONY : i2c.c.obj
+
+i2c.i: i2c.c.i
+.PHONY : i2c.i
+
+# target to preprocess a source file
+i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/i2c.c.i
+.PHONY : i2c.c.i
+
+i2c.s: i2c.c.s
+.PHONY : i2c.s
+
+# target to generate assembly for a file
+i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/i2c.c.s
+.PHONY : i2c.c.s
+
 macropad1.obj: macropad1.c.obj
 .PHONY : macropad1.obj
 
@@ -2075,6 +2123,9 @@ help:
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.i"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.s"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s"
@@ -2190,6 +2241,9 @@ help:
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s"
+	@echo "... i2c.obj"
+	@echo "... i2c.i"
+	@echo "... i2c.s"
 	@echo "... macropad1.obj"
 	@echo "... macropad1.i"
 	@echo "... macropad1.s"

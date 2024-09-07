@@ -141,6 +141,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/menadue/pico/pico-sdk/src/common/boot_picobin_headers/include"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/include"
+  "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   )
 
 # The set of dependency files which are needed:
@@ -179,6 +180,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d"
+  "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d"
@@ -213,6 +215,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj.d"
+  "/home/menadue/pico/framework/framework_16/macropad/v1/i2c.c" "CMakeFiles/macropad1.dir/i2c.c.obj" "gcc" "CMakeFiles/macropad1.dir/i2c.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v1/macropad1.c" "CMakeFiles/macropad1.dir/macropad1.c.obj" "gcc" "CMakeFiles/macropad1.dir/macropad1.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v1/serial.c" "CMakeFiles/macropad1.dir/serial.c.obj" "gcc" "CMakeFiles/macropad1.dir/serial.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj.d"

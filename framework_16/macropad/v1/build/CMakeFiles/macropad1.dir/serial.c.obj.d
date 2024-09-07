@@ -78,4 +78,5 @@ CMakeFiles/macropad1.dir/serial.c.obj: \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
+ /home/menadue/pico/framework/framework_16/macropad/v1/i2c.h \
  /home/menadue/pico/framework/framework_16/macropad/v1/macropad.h

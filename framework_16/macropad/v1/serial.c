@@ -16,6 +16,7 @@
 #include "hardware/gpio.h"
 #include "pico/bootrom.h"
 
+#include "i2c.h"
 #include "macropad.h"
 
 void serial_help(void);
@@ -233,6 +234,10 @@ void cli_read_adc(void)
 }
   
 
+void cli_init_i2c(void)
+{
+  i2c_init_il31();
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -364,6 +369,11 @@ SERIAL_COMMAND serial_cmds[] =
     'S',
     "Scan",
     cli_scan,
+   },
+   {
+    'I',
+    "Init i2c",
+    cli_init_i2c,
    },
    
   };

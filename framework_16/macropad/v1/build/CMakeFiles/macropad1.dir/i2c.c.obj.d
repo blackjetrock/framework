@@ -1,5 +1,5 @@
-CMakeFiles/macropad1.dir/macropad1.c.obj: \
- /home/menadue/pico/framework/framework_16/macropad/v1/macropad1.c \
+CMakeFiles/macropad1.dir/i2c.c.obj: \
+ /home/menadue/pico/framework/framework_16/macropad/v1/i2c.c \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -16,6 +16,8 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: \
  /usr/include/newlib/sys/timespec.h /usr/include/newlib/sys/_timespec.h \
  /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/sys/sched.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
+ /usr/include/newlib/string.h /usr/include/newlib/sys/_locale.h \
+ /usr/include/newlib/strings.h /usr/include/newlib/sys/string.h \
  /home/menadue/pico/pico-sdk/src/common/pico_stdlib_headers/include/pico/stdlib.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/types.h \
@@ -66,9 +68,6 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h \
- /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h \
- /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
@@ -76,4 +75,5 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
- /home/menadue/pico/framework/framework_16/macropad/v1/macropad.h
+ /usr/include/newlib/ctype.h \
+ /home/menadue/pico/framework/framework_16/macropad/v1/i2c.h

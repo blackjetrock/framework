@@ -2,6 +2,8 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/adc.h"
+#include "hardware/i2c.h"
+
 #include "pico/binary_info.h"
 
 #include "macropad.h"
@@ -91,6 +93,15 @@ void init_gpios(void)
   gpio_set_input(PIN_UNUSED1);
   gpio_set_input(PIN_UNUSED2);
   
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void init_i2c(void)
+{
+    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
+    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
