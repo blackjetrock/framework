@@ -85,6 +85,9 @@ void init_gpios(void)
 
   gpio_set_out(PIN_MUX_ENABLE);
   gpio_put(PIN_MUX_ENABLE, 0);
+
+  gpio_set_out(25);
+  gpio_put(25, 1);
   
   gpio_set_out(PIN_MUX_A);
   gpio_set_out(PIN_MUX_B);
