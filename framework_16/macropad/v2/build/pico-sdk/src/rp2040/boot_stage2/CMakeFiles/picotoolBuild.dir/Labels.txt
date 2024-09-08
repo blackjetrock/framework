@@ -1,0 +1,14 @@
+# Target labels
+ picotoolBuild
+# Source files and their labels
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild-complete.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule
+/home/menadue/pico/framework/framework_16/macropad/v2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule
