@@ -37,6 +37,7 @@ extern const uint PIN_ADC;
 
 #define NUM_ROW  4
 #define NUM_COL 16
+#define NUM_KEYS 24
 
 extern const int col[NUM_COL];
 

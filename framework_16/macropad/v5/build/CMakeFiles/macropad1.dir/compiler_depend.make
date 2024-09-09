@@ -3652,7 +3652,8 @@ CMakeFiles/macropad1.dir/keyboard.c.obj: ../keyboard.c \
   /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
   /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
   /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
-  ../macropad_usb.h
+  ../macropad_usb.h \
+  ../keyboard.h
 
 CMakeFiles/macropad1.dir/macropad1.c.obj: ../macropad1.c \
   /home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/board_api.h \
@@ -4217,9 +4218,9 @@ CMakeFiles/macropad1.dir/usb_descriptors.c.obj: ../usb_descriptors.c \
 
 ../macropad_usb.c:
 
-../keyboard.h:
-
 ../usb_descriptors.h:
+
+../keyboard.h:
 
 ../macropad.h:
 

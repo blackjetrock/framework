@@ -130,7 +130,7 @@ void oledmain(void);
 void serial_loop(void);
 
 int main() {
-  
+  init_keyboard();
   stdio_init_all();
 
 
