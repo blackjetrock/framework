@@ -154,6 +154,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj.d"
   "CMakeFiles/macropad1.dir/i2c.c.obj"
   "CMakeFiles/macropad1.dir/i2c.c.obj.d"
+  "CMakeFiles/macropad1.dir/keyboard.c.obj"
+  "CMakeFiles/macropad1.dir/keyboard.c.obj.d"
   "CMakeFiles/macropad1.dir/macropad1.c.obj"
   "CMakeFiles/macropad1.dir/macropad1.c.obj.d"
   "CMakeFiles/macropad1.dir/macropad_usb.c.obj"

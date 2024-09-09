@@ -1984,6 +1984,30 @@ i2c.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/i2c.c.s
 .PHONY : i2c.c.s
 
+keyboard.obj: keyboard.c.obj
+.PHONY : keyboard.obj
+
+# target to build an object file
+keyboard.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/keyboard.c.obj
+.PHONY : keyboard.c.obj
+
+keyboard.i: keyboard.c.i
+.PHONY : keyboard.i
+
+# target to preprocess a source file
+keyboard.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/keyboard.c.i
+.PHONY : keyboard.c.i
+
+keyboard.s: keyboard.c.s
+.PHONY : keyboard.s
+
+# target to generate assembly for a file
+keyboard.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/keyboard.c.s
+.PHONY : keyboard.c.s
+
 macropad1.obj: macropad1.c.obj
 .PHONY : macropad1.obj
 
@@ -2343,6 +2367,9 @@ help:
 	@echo "... i2c.obj"
 	@echo "... i2c.i"
 	@echo "... i2c.s"
+	@echo "... keyboard.obj"
+	@echo "... keyboard.i"
+	@echo "... keyboard.s"
 	@echo "... macropad1.obj"
 	@echo "... macropad1.i"
 	@echo "... macropad1.s"

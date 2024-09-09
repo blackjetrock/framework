@@ -6,6 +6,7 @@
 #include "usb_descriptors.h"
 
 #include "macropad.h"
+#include "keyboard.h"
 
 // Blink pattern
 enum
@@ -105,6 +106,12 @@ void init_gpios(void)
 
   gpio_set_input(PIN_UNUSED1);
   gpio_set_input(PIN_UNUSED2);
+
+  adc_init();
+  adc_gpio_init(PIN_ADC);
+  adc_select_input(2);
+  gpio_pull_up(PIN_ADC);
+
   
 }
 
@@ -123,34 +130,38 @@ void oledmain(void);
 void serial_loop(void);
 
 int main() {
-
-
-
   
   stdio_init_all();
 
-  
-  adc_init();
-  adc_gpio_init(PIN_ADC);
-  adc_select_input(2);
-  gpio_pull_up(PIN_ADC);
-  init_gpios();
 
   init_usb();
+  init_gpios();
   
-  sleep_ms(2000);
-  
-  printf("\nMacropad CDC Stdio");
+  sleep_ms(300);
       
   // Main loop
+  int loop_count = 0;
+  int sent_banner = 0;
+  
   while(1)
     {
+      loop_count++;
 
+      if( loop_count == 25000 )
+	{
+	  if( !sent_banner )
+	    {
+	      printf("\n\nMacropad CDC Stdio\n\n");
+	      serial_help();
+	      sent_banner = 1;
+	    }
+	}
+      
       tud_task();
+      key_scan();
       serial_loop();
       hid_task();
     }
-  
 }
 
 //--------------------------------------------------------------------+
@@ -204,7 +215,7 @@ int key_being_sent = 0;
 int key_to_send = HID_KEY_NONE;
 
 int keycnt = 0;
-int key = HID_KEY_A;
+int key = HID_KEY_NONE;
 
 //------------------------------------------------------------------------------
 // New key to be sent
