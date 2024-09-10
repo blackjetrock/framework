@@ -39,6 +39,9 @@ extern const uint PIN_ADC;
 #define NUM_COL 16
 #define NUM_KEYS 24
 
+// No matrix key held down
+#define MATRIX_KEY_NONE 255
+
 extern const int col[NUM_COL];
 
 void hid_task(void);

@@ -21,8 +21,10 @@ extern KEYCODE kb_external_key;
 
 
 void key_scan(void);
+void drive_column(int column, int state);
+  void drive_row(int row);
 
-#define KEY_NONE -1
+
 
 #if 0
 int matrix_map[24] =

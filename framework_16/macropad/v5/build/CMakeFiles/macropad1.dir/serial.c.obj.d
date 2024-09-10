@@ -87,4 +87,5 @@ CMakeFiles/macropad1.dir/serial.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h
+ /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h \
+ /home/menadue/pico/framework/framework_16/macropad/v5/keyboard.h

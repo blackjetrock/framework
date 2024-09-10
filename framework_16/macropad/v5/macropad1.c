@@ -7,6 +7,7 @@
 
 #include "macropad.h"
 #include "keyboard.h"
+#include "serial.h"
 
 // Blink pattern
 enum
@@ -126,6 +127,36 @@ void init_i2c(void)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+int macro_keys[24] =
+  {
+    HID_KEY_A,
+    HID_KEY_B,
+    HID_KEY_PAGE_UP,
+    HID_KEY_PAGE_DOWN,
+    HID_KEY_C,
+    HID_KEY_D,
+    HID_KEY_E,
+    HID_KEY_F,
+    HID_KEY_G,
+    HID_KEY_H,
+    HID_KEY_I,
+    HID_KEY_J,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+    HID_KEY_A,
+  };
+
+////////////////////////////////////////////////////////////////////////////////
+
 void oledmain(void);
 void serial_loop(void);
 
@@ -161,6 +192,15 @@ int main() {
       key_scan();
       serial_loop();
       hid_task();
+
+      char k = nos_get_key();
+      
+      if( k != MATRIX_KEY_NONE )
+	{
+	  deliver_key(macro_keys[k]); 
+	  printf("\n%s:%d", __FUNCTION__, k);
+	}
+      
     }
 }
 
@@ -206,8 +246,8 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
 // Keys are reported here
 // We have access functions for delivering the key presses
 
-#define KEY_PRESSED_TICKS  20
-#define KEY_RELEASED_TICKS  2
+#define KEY_PRESSED_TICKS  2
+#define KEY_RELEASED_TICKS  3
 
 #define KEY_PRESS_CYCLE_TICKS  (KEY_PRESSED_TICKS+KEY_RELEASED_TICKS)
 
@@ -225,6 +265,8 @@ int key = HID_KEY_NONE;
 int deliver_key(int key_to_deliver)
 {
   int ret = 0;
+
+  printf("\n%s:%d", __FUNCTION__, key_to_deliver);
   
   if( deliver_key_done() )
     {
@@ -232,6 +274,7 @@ int deliver_key(int key_to_deliver)
       key_to_send = key_to_deliver;
       
       key_being_sent = 1;
+      ret = 1;
     }
 
   return(ret);
@@ -239,6 +282,7 @@ int deliver_key(int key_to_deliver)
 
 int deliver_key_done(void)
 {
+  printf("\n%s:%d", __FUNCTION__, !key_being_sent);
   return(!key_being_sent);
 }
 
@@ -250,7 +294,7 @@ int deliver_key_done(void)
 
 static void send_hid_report(uint8_t report_id, uint32_t btn)
 {
-  
+#if 0
   if( key_being_sent )
     {
       keycnt++;  
@@ -258,23 +302,27 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
       switch(keycnt)
 	{
 	case 1:
+	  printf("\n%s:1", __FUNCTION__);
 	  key = key_to_send;
 	  break;
 	  
 	  // Key has been pressed, now release it for a bit
 	case KEY_PRESSED_TICKS:
+	  printf("\n%s:2", __FUNCTION__);
 	  key = HID_KEY_NONE;
 	  break;
 	  
 	case KEY_PRESS_CYCLE_TICKS:
 	  keycnt = 0;
 	  key_being_sent = 0;
+	  printf("\n%s:3", __FUNCTION__);
 	  break;
 	  
     default:
       break;
 	}
     }
+#endif
   
   // skip if hid is not ready yet
   if ( !tud_hid_ready() )
@@ -283,7 +331,9 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
   switch(report_id)
     {
     case REPORT_ID_KEYBOARD:
+#if 0
       {
+
 	// use to avoid send multiple consecutive zero report for keyboard
 	static bool has_keyboard_key = false;
 
@@ -293,15 +343,34 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
 	    keycode[0] = key;
 
 	    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+	    key = HID_KEY_NONE;
 	    has_keyboard_key = true;
 	  }
 	else
 	  {
 	    // send empty key report if previously has key pressed
-	    if (has_keyboard_key) tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+	    if (has_keyboard_key)
+	      {
+	      tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+	      }
 	    has_keyboard_key = false;
 	  }
       }
+#endif
+
+      if( key_being_sent && (key_to_send != MATRIX_KEY_NONE) )
+	{
+	  uint8_t keycode[6] = { 0 };
+	  keycode[0] = key_to_send;
+	  
+	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+	}
+      else
+	{
+	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+	}
+      
+      key_being_sent = 0;
       break;
 
     case REPORT_ID_MOUSE:

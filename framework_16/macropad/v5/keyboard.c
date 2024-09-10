@@ -1,8 +1,14 @@
 
 
+#include "bsp/board_api.h"
+#include "tusb.h"
+
+#include "usb_descriptors.h"
+
 #include "macropad.h"
 
 #include "keyboard.h"
+
 
 void drive_column(int column, int state)
 {
@@ -62,7 +68,7 @@ void drive_row(int row)
 // location and wait for it to tuirn to KEY_NONE before putting another one there.
 // If multiple code needs ot do this, then add more variables and add insertion in the KB code.
 
-KEYCODE kb_external_key = KEY_NONE;
+KEYCODE kb_external_key = MATRIX_KEY_NONE;
 
 // Called regularly, can be on core1.
 
@@ -301,7 +307,8 @@ int shift_pressed = 0;
 
 //------------------------------------------------------------------------------
 // The key buffer 
-
+// Press and release event are queued and then sent on
+//
 volatile char nos_key_buffer[NOS_KEY_BUFFER_LEN];
 
 // Keys in and out pointers
@@ -326,7 +333,7 @@ void nos_put_key(char key)
 
 char nos_get_key(void)
 {
-  char k = KEY_NONE;
+  char k = MATRIX_KEY_NONE;
   
   if( nos_key_in == nos_key_out )
     {
@@ -353,6 +360,8 @@ char nos_get_key(void)
 
 void matrix_debounce(MATRIX_MAP matrix)
 {
+  //printf("\nInput:%016llX", matrix);
+  
   // Move queue along and insert new value
   for(int i=1; i<MAX_INPUT_QUEUE;i++)
     {
@@ -361,8 +370,10 @@ void matrix_debounce(MATRIX_MAP matrix)
 
   input_queue[0] = matrix;
 
+  // Work out which keys are pressed and unpressed
   // shift the pressed and unpressed queues so a new entry
   // can be added
+  
   for(int i=1; i<MAX_PRESS_QUEUE;i++)
     {
       pressed_queue[i]  = pressed_queue[i-1];
@@ -371,9 +382,13 @@ void matrix_debounce(MATRIX_MAP matrix)
   
   pressed_queue[0]  = ~((uint64_t)0);
   released_queue[0] = ~((uint64_t)0);
-  
+
+  //
   // AND the input and also the negation of the input
   // This gives us a stream of pressed and released edges.
+  // To be pressed, all the key bits in th einoput queue have to show
+  // pressed. This is the debounce time
+  
   for(int i=0; i<MAX_INPUT_QUEUE;i++)
     {
       // All keys held for max_queue samples
@@ -382,19 +397,30 @@ void matrix_debounce(MATRIX_MAP matrix)
     }
 
   // Now find pressed edge events and released edge events
+  // Now look for rising and falling edges in the pressed and unpressed
+  // matrices. These are key events.
+  
   pressed_edges  =  pressed_queue[0] & ~pressed_queue[1];
   released_edges = ~pressed_queue[0] &  pressed_queue[1];
 
+  // If something pressed or unpressed
   if ( pressed_edges | released_edges)
     {
-      //printf("\nPed:%016llX Red:%016llX", pressed_edges, released_edges);
+      printf("\nPedges:%016llX Redges:%016llX", pressed_edges, released_edges);
 
       //printf("\n");
       for(int i=0; i<64; i++)
 	{
 	  if( ((uint64_t)1<<i) & pressed_edges )
 	    {
-	      //printf(" %d", i);
+	      nos_put_key(i);
+	      printf("\n  PRESS %d", i);
+	    }
+	  
+	  if( ((uint64_t)1<<i) & released_edges )
+	    {
+	      nos_put_key(MATRIX_KEY_NONE);
+	      printf("\nUNPRESS %d", i);
 	    }
 	}
     }
@@ -416,7 +442,7 @@ void matrix_debounce(MATRIX_MAP matrix)
   // SHIFT, NUM and CAPS keys.
 
   // The key queue is made up of pressed events only
-
+#if 0
   shift_pressed = key_states & ((uint64_t)1<< MATRIX_BIT_SHIFT);
   
   // We need to handle the shift key for upper/lower case
@@ -461,7 +487,9 @@ void matrix_debounce(MATRIX_MAP matrix)
 	  break;
 	}
     }
-  
+
+#endif
+#if 0
   // Now generate pressed events and put them into a queue
   int i = 0;
   
@@ -470,7 +498,7 @@ void matrix_debounce(MATRIX_MAP matrix)
       if( (key_map[i].mask) & pressed_edges )
 	{
 	  // Key pressed
-	  //printf("\nC:%c", key_map[i].c);
+	  printf("\nC:%d", key_map[i].c);
 
 	  // Update inactivity timeout
 	  last_key_press_time = time_us_64();
@@ -491,7 +519,8 @@ void matrix_debounce(MATRIX_MAP matrix)
       nos_put_key(kb_external_key);
       kb_external_key = KEY_NONE;
     }
-
+#endif
+#if 0
   // Inactivity processing
 
   // Initialise the last key time as global initialisation has to be constant
@@ -510,7 +539,7 @@ void matrix_debounce(MATRIX_MAP matrix)
       last_tick_time = now;
       tick = 1;
     }
-  
+#endif
  
 }
 
@@ -599,7 +628,7 @@ void key_scan(void)
 	  drive_column(c, 1);
 	}
 
-      if( !pressed )
+      if( !pressed,0 )
 	{
 	  return;
 	}
@@ -627,7 +656,9 @@ void key_scan(void)
       
       int pc = -1;
       int pr = -1;
-  
+
+      MATRIX_MAP mm = 0;
+      
       for(int c=0; c< NUM_COL; c++)
 	{
 	  //printf("\n");
@@ -641,6 +672,10 @@ void key_scan(void)
 		  //	  printf("*  ");
 		  pc = c;
 		  pr = r;
+		  
+		  int key_index = key_grid_reverse_map[pr*16+pc];
+
+		  mm |= 1 << (key_index);
 		}
 	      else
 		{
@@ -651,17 +686,24 @@ void key_scan(void)
 	}
 
       //done = 1;
-      printf("\n(%d, %d)", pc, pr);
+      //printf("\n(%d, %d)", pc, pr);
 
       // Create a matrix of keys and pass to the debounce function
-      if( (pc == -1) && (pr == -1) )
+      if( (pc == -1) && (pr == -1),0 )
 	{
 	}
       else
 	{
+	  MATRIX_MAP m;
+	  
 	  int key_index = key_grid_reverse_map[pr*16+pc];
 	  
-	  printf("\nKey_index:%d", key_index);
+	  //printf("\nKey_index:%d", key_index);
+
+	  // Send to debouncer
+	  m = 1 << (key_index);
+	  
+	  matrix_debounce(mm);
 	}
     }
 }

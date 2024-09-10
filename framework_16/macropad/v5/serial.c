@@ -18,6 +18,8 @@
 
 #include "i2c.h"
 #include "macropad.h"
+#include "keyboard.h"
+
 
 void serial_help(void);
 void prompt(void);
@@ -25,7 +27,6 @@ void prompt(void);
 int parameter = 0;
 int keypress = 0;
 
-#define KEY_NONE 0
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -257,7 +258,7 @@ SERIAL_COMMAND serial_cmds[] =
 
 void serial_loop(void)
 {
-  int key = KEY_NONE;
+  int key = -1;
 
   
   int key_queue[3];
