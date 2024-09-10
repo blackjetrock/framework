@@ -2008,6 +2008,30 @@ keyboard.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/keyboard.c.s
 .PHONY : keyboard.c.s
 
+led.obj: led.c.obj
+.PHONY : led.obj
+
+# target to build an object file
+led.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/led.c.obj
+.PHONY : led.c.obj
+
+led.i: led.c.i
+.PHONY : led.i
+
+# target to preprocess a source file
+led.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/led.c.i
+.PHONY : led.c.i
+
+led.s: led.c.s
+.PHONY : led.s
+
+# target to generate assembly for a file
+led.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/led.c.s
+.PHONY : led.c.s
+
 macropad1.obj: macropad1.c.obj
 .PHONY : macropad1.obj
 
@@ -2370,6 +2394,9 @@ help:
 	@echo "... keyboard.obj"
 	@echo "... keyboard.i"
 	@echo "... keyboard.s"
+	@echo "... led.obj"
+	@echo "... led.i"
+	@echo "... led.s"
 	@echo "... macropad1.obj"
 	@echo "... macropad1.i"
 	@echo "... macropad1.s"

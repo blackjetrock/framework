@@ -17,6 +17,8 @@
 #include "pico/bootrom.h"
 
 #include "i2c.h"
+#include "led.h"
+
 #include "macropad.h"
 #include "keyboard.h"
 
@@ -108,6 +110,28 @@ void cli_send_key(void)
   // Wait a bit then send the key
   sleep_ms(3000);
   deliver_key(parameter);  
+}
+
+
+
+int r, g, b;
+int x, y;
+
+void cli_led_test(void)
+{
+
+
+  x = (parameter & 0xFF00) >> 8;
+  y = (parameter & 0x00FF) >> 0;
+  
+  set_led_rgb(x, y, r, g, b);
+}
+
+void cli_set_rgb(void)
+{
+  r = (parameter & 0xFF0000) >> 16;
+  g = (parameter & 0x00FF00) >>  8;
+  b = (parameter & 0x0000FF) >>  0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -221,14 +245,9 @@ SERIAL_COMMAND serial_cmds[] =
     cli_zero_parameter,
    },
    {
-    'R',
-    "Drive row",
-    cli_drive_row,
-   },
-   {
     'C',
-    "Drive column",
-    cli_drive_column,
+    "Set colour",
+    cli_set_rgb,
    },
    {
     'A',
@@ -249,6 +268,12 @@ SERIAL_COMMAND serial_cmds[] =
     'U',
     "Send USB key",
     cli_send_key,
+   },
+   
+   {
+    'L',
+    "LED test",
+    cli_led_test,
    },
    
   };

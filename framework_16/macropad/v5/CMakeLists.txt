@@ -18,6 +18,7 @@ add_executable(macropad1
   usb_descriptors.c
   msc_disk.c
   keyboard.c
+  led.c
   )
 
 pico_enable_stdio_usb(macropad1 1)

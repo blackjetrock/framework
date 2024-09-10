@@ -156,6 +156,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/macropad1.dir/i2c.c.obj.d"
   "CMakeFiles/macropad1.dir/keyboard.c.obj"
   "CMakeFiles/macropad1.dir/keyboard.c.obj.d"
+  "CMakeFiles/macropad1.dir/led.c.obj"
+  "CMakeFiles/macropad1.dir/led.c.obj.d"
   "CMakeFiles/macropad1.dir/macropad1.c.obj"
   "CMakeFiles/macropad1.dir/macropad1.c.obj.d"
   "CMakeFiles/macropad1.dir/macropad_usb.c.obj"
