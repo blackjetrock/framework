@@ -36,7 +36,7 @@ RGB_LED_INFO led_info[NUM_LEDS] =
     {{18, 1}, {17, 1}, {16, 1} },
     {{18, 2}, {17, 2}, {16, 2} },
     {{18, 3}, {17, 3}, {16, 3} },
-    {{18, 4}, {17, 4}, {16, 4} },
+    {{18, 4}, {17, 4}, {19, 4} },
   };
 
 
@@ -45,7 +45,7 @@ void set_led_rgb(int x, int y, int r, int g, int b)
   uint8_t reg;
   uint8_t data;
   int led_no = x;
-
+  
   printf("\n%s:x:%d y:%d r:%d g:%d b:%d", __FUNCTION__, x, y, r, g, b);
   
   i2c_unlock_il31();
@@ -68,6 +68,41 @@ void set_led_rgb(int x, int y, int r, int g, int b)
   printf("\n   G reg:%02X data:%02X", reg, data);
   
   reg = CS_SW_TO_OFFSET(info.b.cs, info.b.sw);
+  data = b;
+  i2c_write_byte(&reg, &data);
+  printf("\n   B reg:%02X data:%02X", reg, data);
+  
+}
+
+
+void set_page0_rgb(int x, int r, int g, int b)
+{
+  uint8_t reg;
+  uint8_t data;
+  int led_no = x;
+  
+  printf("\n%s:offset:%d r:%d g:%d b:%d", __FUNCTION__, x, r, g, b);
+  
+  i2c_unlock_il31();
+  reg = 0xFD;
+  data = 0x00;
+  i2c_write_byte(&reg, &data);
+
+  // Write R
+  RGB_LED_INFO info = led_info[led_no];
+
+  
+  reg = x;
+  data = r;
+  i2c_write_byte(&reg, &data);
+  printf("\n   R reg:%02X data:%02X", reg, data);
+  
+  reg = x;
+  data = g;
+  i2c_write_byte(&reg, &data);
+  printf("\n   G reg:%02X data:%02X", reg, data);
+  
+  reg = x;
   data = b;
   i2c_write_byte(&reg, &data);
   printf("\n   B reg:%02X data:%02X", reg, data);

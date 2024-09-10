@@ -20,3 +20,4 @@ typedef struct
 
 
 void set_led_rgb(int x, int y, int r, int g, int b);
+void set_page0_rgb(int x, int r, int g, int b);

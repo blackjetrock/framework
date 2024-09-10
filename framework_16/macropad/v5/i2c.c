@@ -125,7 +125,7 @@ void i2c_init_il31(void)
   for(int i = 1; i<= 0xC6; i++)
     {
       reg = i;
-      data += 17;
+      data = 175;
 
       i2c_write_byte(&reg, &data);
     }

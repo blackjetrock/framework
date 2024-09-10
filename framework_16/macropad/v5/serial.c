@@ -127,6 +127,13 @@ void cli_led_test(void)
   set_led_rgb(parameter, y, r, g, b);
 }
 
+void cli_led_test_offset(void)
+{
+  
+  set_page0_rgb(parameter, r, g, b);
+  parameter++;
+}
+
 void cli_set_rgb(void)
 {
   r = (parameter & 0xFF0000) >> 16;
@@ -140,6 +147,11 @@ void cli_set_all_rgb(void)
     {
       set_led_rgb(i, 0, r, g, b);
     }
+}
+
+void cli_inc_param(void)
+{
+  parameter++;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -284,9 +296,19 @@ SERIAL_COMMAND serial_cmds[] =
     cli_led_test,
    },
    {
+    'l',
+    "LED test offset",
+    cli_led_test_offset,
+   },
+   {
     '=',
     "All leds to one colour",
     cli_set_all_rgb,
+   },
+   {
+    '+',
+    "Inc parameter",
+    cli_inc_param,
    },
    
   };
