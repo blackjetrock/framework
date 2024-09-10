@@ -1,5 +1,0 @@
-/home/menadue/pico/framework/framework_16/macropad/v1/build/_deps/picotool/picotool
-/home/menadue/pico/framework/framework_16/macropad/v1/build/_deps/picotool/picotoolTargets.cmake
-/home/menadue/pico/framework/framework_16/macropad/v1/build/_deps/picotool/picotoolTargets-release.cmake
-/home/menadue/pico/framework/framework_16/macropad/v1/build/_deps/picotool/picotoolConfig.cmake
-/home/menadue/pico/framework/framework_16/macropad/v1/build/_deps/picotool/picotoolConfigVersion.cmake
