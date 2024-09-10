@@ -8,7 +8,7 @@ RGB Macropad Firmware
 
 This firmware is based on TinyUSB and does not use QMK. It is hacked together and not finished. It should be simple to extend or change as required.
 The code presents a HID keyboard, a mass storage device (there because the code I based this on had it) and a USB serial port. The USB serial has a menu driven interface that is used to debiug the code at the moment, but could be used for configuration.
-
+The code doesn't support the SLEEP input so it stays on when the lid is shut.
 
 
 Putting macropad into mass storage mode.
