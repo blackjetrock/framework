@@ -99,7 +99,7 @@ void i2c_init_il31(void)
   i2c_write_byte(&reg, &data);
 
   sleep_ms(10);
-  
+#if 0
   // Quick turn on of all LEDs
   i2c_unlock_il31();
   reg = 0xFD;
@@ -114,7 +114,9 @@ void i2c_init_il31(void)
 
       i2c_write_byte(&reg, &data);
     }
-
+#endif
+  
+#if 1
   i2c_unlock_il31();
   reg = 0xFD;
   data = 0x01;
@@ -128,7 +130,8 @@ void i2c_init_il31(void)
       i2c_write_byte(&reg, &data);
     }
 
-
+#endif
+  
   // Read config byte
   i2c_unlock_il31();
   reg = 0xFD;

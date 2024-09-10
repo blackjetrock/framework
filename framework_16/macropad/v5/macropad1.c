@@ -8,6 +8,7 @@
 #include "macropad.h"
 #include "keyboard.h"
 #include "serial.h"
+#include "i2c.h"
 
 // Blink pattern
 enum
@@ -161,6 +162,9 @@ void oledmain(void);
 void serial_loop(void);
 
 int main() {
+  
+  i2c_init_il31();
+  
   init_keyboard();
   stdio_init_all();
 

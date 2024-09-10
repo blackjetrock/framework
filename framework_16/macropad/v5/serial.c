@@ -124,7 +124,7 @@ void cli_led_test(void)
   x = (parameter & 0xFF00) >> 8;
   y = (parameter & 0x00FF) >> 0;
   
-  set_led_rgb(x, y, r, g, b);
+  set_led_rgb(parameter, y, r, g, b);
 }
 
 void cli_set_rgb(void)
@@ -132,6 +132,14 @@ void cli_set_rgb(void)
   r = (parameter & 0xFF0000) >> 16;
   g = (parameter & 0x00FF00) >>  8;
   b = (parameter & 0x0000FF) >>  0;
+}
+
+void cli_set_all_rgb(void)
+{
+  for(int i=0; i<NUM_LEDS; i++)
+    {
+      set_led_rgb(i, 0, r, g, b);
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -274,6 +282,11 @@ SERIAL_COMMAND serial_cmds[] =
     'L',
     "LED test",
     cli_led_test,
+   },
+   {
+    '=',
+    "All leds to one colour",
+    cli_set_all_rgb,
    },
    
   };

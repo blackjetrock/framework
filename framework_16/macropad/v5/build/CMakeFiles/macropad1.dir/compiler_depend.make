@@ -3917,7 +3917,8 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: ../macropad1.c \
   /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
   ../macropad_usb.h \
   ../keyboard.h \
-  ../serial.h
+  ../serial.h \
+  ../i2c.h
 
 CMakeFiles/macropad1.dir/macropad_usb.c.obj: ../macropad_usb.c \
   ../macropad.h \
@@ -4238,6 +4239,7 @@ CMakeFiles/macropad1.dir/serial.c.obj: ../serial.c \
   /home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
   /home/menadue/pico/pico-sdk/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
   ../i2c.h \
+  ../led.h \
   ../macropad.h \
   /home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
   /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
