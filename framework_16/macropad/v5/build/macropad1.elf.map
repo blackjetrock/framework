@@ -1890,9 +1890,9 @@ Discarded input sections
                 0x0000000000000000       0x50 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
  .text.board_getchar
                 0x0000000000000000        0xc CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
- .text          0x0000000000000000        0x0 /tmp/ccIg73j9.o
- .data          0x0000000000000000        0x0 /tmp/ccIg73j9.o
- .bss           0x0000000000000000        0x0 /tmp/ccIg73j9.o
+ .text          0x0000000000000000        0x0 /tmp/ccGr5DNM.o
+ .data          0x0000000000000000        0x0 /tmp/ccGr5DNM.o
+ .bss           0x0000000000000000        0x0 /tmp/ccGr5DNM.o
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x0000000000000000       0x10 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-atexit.o)
@@ -2755,7 +2755,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 .boot2          0x0000000010000000      0x100
                 0x0000000010000000                __boot2_start__ = .
  *(.boot2)
- .boot2         0x0000000010000000      0x100 /tmp/ccIg73j9.o
+ .boot2         0x0000000010000000      0x100 /tmp/ccGr5DNM.o
                 0x0000000010000100                __boot2_end__ = .
                 0x0000000000000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -4387,7 +4387,7 @@ LOAD CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_fix
 LOAD CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 LOAD CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
-LOAD /tmp/ccIg73j9.o
+LOAD /tmp/ccGr5DNM.o
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -4534,7 +4534,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000000000000a3c       0x2c CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
  .ARM.attributes
-                0x0000000000000a68       0x22 /tmp/ccIg73j9.o
+                0x0000000000000a68       0x22 /tmp/ccGr5DNM.o
  .ARM.attributes
                 0x0000000000000a8a       0x1e /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
@@ -4972,7 +4972,7 @@ LOAD linker stubs
  .debug_ranges  0x000000000000e320      0x430 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .debug_ranges  0x000000000000e750      0x308 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
 
-.debug_line     0x0000000000000000    0x274d3
+.debug_line     0x0000000000000000    0x274d4
  .debug_line    0x0000000000000000      0xf4c CMakeFiles/macropad1.dir/macropad1.c.obj
  .debug_line    0x0000000000000f4c      0x858 CMakeFiles/macropad1.dir/serial.c.obj
  .debug_line    0x00000000000017a4      0x75d CMakeFiles/macropad1.dir/i2c.c.obj
@@ -4980,62 +4980,62 @@ LOAD linker stubs
  .debug_line    0x000000000000200d      0x463 CMakeFiles/macropad1.dir/usb_descriptors.c.obj
  .debug_line    0x0000000000002470      0x321 CMakeFiles/macropad1.dir/msc_disk.c.obj
  .debug_line    0x0000000000002791     0x1040 CMakeFiles/macropad1.dir/keyboard.c.obj
- .debug_line    0x00000000000037d1      0x26f CMakeFiles/macropad1.dir/led.c.obj
- .debug_line    0x0000000000003a40     0x1c35 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_line    0x0000000000005675      0x1c5 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2040/pico_platform/platform.c.obj
- .debug_line    0x000000000000583a      0x1ef CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_line    0x0000000000005a29      0x88d CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/hardware_claim/claim.c.obj
- .debug_line    0x00000000000062b6      0x432 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- .debug_line    0x00000000000066e8      0x305 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_line    0x00000000000069ed     0x15e2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- .debug_line    0x0000000000007fcf      0x239 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
- .debug_line    0x0000000000008208     0x19f8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- .debug_line    0x0000000000009c00      0x36b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- .debug_line    0x0000000000009f6b     0x301d CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_time/time.c.obj
- .debug_line    0x000000000000cf88     0x1c96 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- .debug_line    0x000000000000ec1e     0x10ec CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
- .debug_line    0x000000000000fd0a     0x1be2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_line    0x00000000000118ec      0x489 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- .debug_line    0x0000000000011d75      0x28f CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_line    0x0000000000012004      0x2ba CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_line    0x00000000000122be      0x25e CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_line    0x000000000001251c      0x493 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_line    0x00000000000129af      0x48e CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_line    0x0000000000012e3d      0x135 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_line    0x0000000000012f72      0x294 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_line    0x0000000000013206      0x2da CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj
- .debug_line    0x00000000000134e0      0x42b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
- .debug_line    0x000000000001390b      0x335 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_line    0x0000000000013c40      0x6a6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
- .debug_line    0x00000000000142e6       0x98 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_line    0x000000000001437e      0x3e5 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
- .debug_line    0x0000000000014763      0x290 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_line    0x00000000000149f3      0x1cc CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
- .debug_line    0x0000000000014bbf       0xc2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_line    0x0000000000014c81      0x163 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .debug_line    0x0000000000014de4     0x17cb CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .debug_line    0x00000000000165af       0xc6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj
- .debug_line    0x0000000000016675      0x799 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_line    0x0000000000016e0e     0x14b8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_line    0x00000000000182c6      0xca8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_line    0x0000000000018f6e      0xae6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_line    0x0000000000019a54      0x446 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_line    0x0000000000019e9a      0x879 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
- .debug_line    0x000000000001a713     0x1d6b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_line    0x000000000001c47e      0xb99 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_line    0x000000000001d017     0x263f CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
- .debug_line    0x000000000001f656      0x589 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_line    0x000000000001fbdf      0xfa9 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_line    0x0000000000020b88      0xd52 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
- .debug_line    0x00000000000218da     0x1946 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
- .debug_line    0x0000000000023220      0xc42 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
- .debug_line    0x0000000000023e62     0x1572 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_line    0x00000000000253d4      0x347 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
- .debug_line    0x000000000002571b      0xfdb CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
- .debug_line    0x00000000000266f6      0xa2a CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
- .debug_line    0x0000000000027120       0x60 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
- .debug_line    0x0000000000027180      0x1e1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memmove.o)
- .debug_line    0x0000000000027361      0x172 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-strlen-stub.o)
+ .debug_line    0x00000000000037d1      0x270 CMakeFiles/macropad1.dir/led.c.obj
+ .debug_line    0x0000000000003a41     0x1c35 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_line    0x0000000000005676      0x1c5 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2040/pico_platform/platform.c.obj
+ .debug_line    0x000000000000583b      0x1ef CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_line    0x0000000000005a2a      0x88d CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/hardware_claim/claim.c.obj
+ .debug_line    0x00000000000062b7      0x432 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_line    0x00000000000066e9      0x305 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_line    0x00000000000069ee     0x15e2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_line    0x0000000000007fd0      0x239 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+ .debug_line    0x0000000000008209     0x19f8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ .debug_line    0x0000000000009c01      0x36b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ .debug_line    0x0000000000009f6c     0x301d CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/common/pico_time/time.c.obj
+ .debug_line    0x000000000000cf89     0x1c96 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_line    0x000000000000ec1f     0x10ec CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_line    0x000000000000fd0b     0x1be2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_line    0x00000000000118ed      0x489 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_line    0x0000000000011d76      0x28f CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_line    0x0000000000012005      0x2ba CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_line    0x00000000000122bf      0x25e CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_line    0x000000000001251d      0x493 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_line    0x00000000000129b0      0x48e CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_line    0x0000000000012e3e      0x135 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_line    0x0000000000012f73      0x294 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_line    0x0000000000013207      0x2da CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj
+ .debug_line    0x00000000000134e1      0x42b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+ .debug_line    0x000000000001390c      0x335 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_line    0x0000000000013c41      0x6a6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+ .debug_line    0x00000000000142e7       0x98 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_line    0x000000000001437f      0x3e5 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+ .debug_line    0x0000000000014764      0x290 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_line    0x00000000000149f4      0x1cc CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+ .debug_line    0x0000000000014bc0       0xc2 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_line    0x0000000000014c82      0x163 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .debug_line    0x0000000000014de5     0x17cb CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .debug_line    0x00000000000165b0       0xc6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj
+ .debug_line    0x0000000000016676      0x799 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_line    0x0000000000016e0f     0x14b8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_line    0x00000000000182c7      0xca8 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_line    0x0000000000018f6f      0xae6 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_line    0x0000000000019a55      0x446 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_line    0x0000000000019e9b      0x879 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_line    0x000000000001a714     0x1d6b CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_line    0x000000000001c47f      0xb99 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_line    0x000000000001d018     0x263f CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+ .debug_line    0x000000000001f657      0x589 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_line    0x000000000001fbe0      0xfa9 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_line    0x0000000000020b89      0xd52 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+ .debug_line    0x00000000000218db     0x1946 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+ .debug_line    0x0000000000023221      0xc42 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+ .debug_line    0x0000000000023e63     0x1572 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_line    0x00000000000253d5      0x347 CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+ .debug_line    0x000000000002571c      0xfdb CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+ .debug_line    0x00000000000266f7      0xa2a CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.c.obj
+ .debug_line    0x0000000000027121       0x60 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0000000000027181      0x1e1 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-memmove.o)
+ .debug_line    0x0000000000027362      0x172 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-strlen-stub.o)
 
 .debug_str      0x0000000000000000     0xb9d7
  .debug_str     0x0000000000000000     0x1706 CMakeFiles/macropad1.dir/macropad1.c.obj
