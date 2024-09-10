@@ -149,6 +149,12 @@ void cli_set_all_rgb(void)
     }
 }
 
+void cli_led_seq(void)
+{
+  set_led_rgb(parameter, 0, r, g, b);
+  parameter++;
+}
+
 void cli_inc_param(void)
 {
   parameter++;
@@ -309,6 +315,11 @@ SERIAL_COMMAND serial_cmds[] =
     '+',
     "Inc parameter",
     cli_inc_param,
+   },
+   {
+    '*',
+    "LEDs in sequence",
+    cli_led_seq,
    },
    
   };

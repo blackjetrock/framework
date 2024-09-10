@@ -16,7 +16,7 @@ typedef struct
   SINGLE_LED_INFO b;
 } RGB_LED_INFO;
 
-#define CS_SW_TO_OFFSET(CS,SW) ((SW-1)*0x12+(CS-1))
+#define CS_SW_TO_OFFSET(CS,SW) ((SW-1)*0x12+(CS))
 
 
 void set_led_rgb(int x, int y, int r, int g, int b);

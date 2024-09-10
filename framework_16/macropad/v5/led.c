@@ -36,7 +36,7 @@ RGB_LED_INFO led_info[NUM_LEDS] =
     {{18, 1}, {17, 1}, {16, 1} },
     {{18, 2}, {17, 2}, {16, 2} },
     {{18, 3}, {17, 3}, {16, 3} },
-    {{18, 4}, {17, 4}, {19, 4} },
+    {{18, 4}, {17, 4}, {16, 4} },
   };
 
 
@@ -96,15 +96,4 @@ void set_page0_rgb(int x, int r, int g, int b)
   data = r;
   i2c_write_byte(&reg, &data);
   printf("\n   R reg:%02X data:%02X", reg, data);
-  
-  reg = x;
-  data = g;
-  i2c_write_byte(&reg, &data);
-  printf("\n   G reg:%02X data:%02X", reg, data);
-  
-  reg = x;
-  data = b;
-  i2c_write_byte(&reg, &data);
-  printf("\n   B reg:%02X data:%02X", reg, data);
-  
 }

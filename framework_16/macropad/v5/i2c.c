@@ -11,7 +11,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // I2C address
-// ADDr1 and 2 connected to GND
+// ADDR1 and 2 connected to GND
 
 #define IL31_ADDR 0x20
 #define I2C_BUS   i2c1
