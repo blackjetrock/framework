@@ -80,7 +80,7 @@ void gpio_set_out(int g)
 {
   gpio_init(g);
   gpio_set_dir(g, GPIO_OUT);
-  printf("\nSetting gpio %d to output", g);
+  //printf("\nSetting gpio %d to output", g);
 }
 
 void gpio_set_input(int g)
@@ -156,6 +156,7 @@ int macro_keys[24] =
     HID_KEY_A,
   };
 
+
 ////////////////////////////////////////////////////////////////////////////////
 
 void oledmain(void);
@@ -201,8 +202,10 @@ int main() {
       
       if( k != MATRIX_KEY_NONE )
 	{
-	  deliver_key(macro_keys[k]); 
-	  printf("\n%s:%d", __FUNCTION__, k);
+	  deliver_key(macro_keys[k]);
+	  set_led_rgb(k, 0, 0x00, 0x00, 0x30);
+	  
+	  //printf("\n%s:%d", __FUNCTION__, k);
 	}
       
     }
@@ -270,7 +273,7 @@ int deliver_key(int key_to_deliver)
 {
   int ret = 0;
 
-  printf("\n%s:%d", __FUNCTION__, key_to_deliver);
+  //printf("\n%s:%d", __FUNCTION__, key_to_deliver);
   
   if( deliver_key_done() )
     {
@@ -286,7 +289,7 @@ int deliver_key(int key_to_deliver)
 
 int deliver_key_done(void)
 {
-  printf("\n%s:%d", __FUNCTION__, !key_being_sent);
+  //printf("\n%s:%d", __FUNCTION__, !key_being_sent);
   return(!key_being_sent);
 }
 

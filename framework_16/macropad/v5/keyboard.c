@@ -406,7 +406,7 @@ void matrix_debounce(MATRIX_MAP matrix)
   // If something pressed or unpressed
   if ( pressed_edges | released_edges)
     {
-      printf("\nPedges:%016llX Redges:%016llX", pressed_edges, released_edges);
+      //printf("\nPedges:%016llX Redges:%016llX", pressed_edges, released_edges);
 
       //printf("\n");
       for(int i=0; i<64; i++)
@@ -414,13 +414,13 @@ void matrix_debounce(MATRIX_MAP matrix)
 	  if( ((uint64_t)1<<i) & pressed_edges )
 	    {
 	      nos_put_key(i);
-	      printf("\n  PRESS %d", i);
+	      //printf("\n  PRESS %d", i);
 	    }
 	  
 	  if( ((uint64_t)1<<i) & released_edges )
 	    {
 	      nos_put_key(MATRIX_KEY_NONE);
-	      printf("\nUNPRESS %d", i);
+	      //printf("\nUNPRESS %d", i);
 	    }
 	}
     }
@@ -451,13 +451,13 @@ void matrix_debounce(MATRIX_MAP matrix)
   if( KEY_PRESSED(pressed_edges,MATRIX_BIT_CAP) && shift_pressed)
     {
       caps_mode = !caps_mode;
-      printf("\nCAPS lock:%d", caps_mode);
+      //printf("\nCAPS lock:%d", caps_mode);
     }
   
   if( KEY_PRESSED(pressed_edges,MATRIX_BIT_NUM) && shift_pressed)
     {
       num_mode = !num_mode;
-      printf("\nNUM lock:%d", num_mode);
+      //printf("\nNUM lock:%d", num_mode);
     }
 
   // Find the key map to use
@@ -498,7 +498,7 @@ void matrix_debounce(MATRIX_MAP matrix)
       if( (key_map[i].mask) & pressed_edges )
 	{
 	  // Key pressed
-	  printf("\nC:%d", key_map[i].c);
+	  //printf("\nC:%d", key_map[i].c);
 
 	  // Update inactivity timeout
 	  last_key_press_time = time_us_64();
