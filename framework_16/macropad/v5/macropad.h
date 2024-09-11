@@ -10,7 +10,7 @@
 #include "pico/binary_info.h"
 #include "macropad_usb.h"
 
-
+extern const uint PIN_SLEEP;
 extern const uint PIN_MUX_ENABLE;
 extern const uint PIN_MUX_A;
 extern const uint PIN_MUX_B;

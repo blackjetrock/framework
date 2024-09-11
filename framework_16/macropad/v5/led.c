@@ -1,4 +1,14 @@
+////////////////////////////////////////////////////////////////////////////////
 //
+// LED things
+//
+// Handles the LED driver
+//
+// Provides a way to turn LEDs on and off
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
 
 #include <stdio.h>
 #include <string.h>
@@ -47,7 +57,7 @@ void set_led_rgb(int x, int y, int r, int g, int b)
   uint8_t data;
   int led_no = x;
   
-  printf("\n%s:x:%d y:%d r:%d g:%d b:%d", __FUNCTION__, x, y, r, g, b);
+  //printf("\n%s:x:%d y:%d r:%d g:%d b:%d", __FUNCTION__, x, y, r, g, b);
   
   i2c_unlock_il31();
   reg = 0xFD;
@@ -56,7 +66,6 @@ void set_led_rgb(int x, int y, int r, int g, int b)
 
   // Write R
   RGB_LED_INFO info = led_info[led_no];
-
   
   reg = CS_SW_TO_OFFSET(info.r.cs, info.r.sw);
   data = r;
@@ -75,6 +84,7 @@ void set_led_rgb(int x, int y, int r, int g, int b)
   
 }
 
+////////////////////////////////////////////////////////////////////////////////
 
 void set_page0_rgb(int x, int r, int g, int b)
 {
@@ -98,3 +108,15 @@ void set_page0_rgb(int x, int r, int g, int b)
   i2c_write_byte(&reg, &data);
   //printf("\n   R reg:%02X data:%02X", reg, data);
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+void clr_led(void)
+{
+  for(int i=0; i<NUM_LEDS; i++)
+    {
+      set_led_rgb(i, 0, 0, 0, 0);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////

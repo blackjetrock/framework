@@ -1,4 +1,31 @@
-
+////////////////////////////////////////////////////////////////////////////////
+//
+// Handles keyboard
+//
+// The key matrix is scanned here and then debounced.
+//
+// The key presses and releases are processed using a uint64_t to handle ]
+// the bit map. This only works for small keyboards.
+//
+// Eventually the keys are put into a queue which the main macropad code
+// tests and pulls key codes from (our key codes)
+//
+// The queue holds just key pressed events, which is the number of the
+// key being pressed.
+//
+// Key numbering (in final output queue):
+//
+//
+//  0  1  2  3
+//  4  5  6  7
+//  8  9  10 11
+//  12 13 14 15
+//  16 17 18 19
+//  20 21 22 23
+//
+// A special code is used for 'no key'
+//
+////////////////////////////////////////////////////////////////////////////////
 
 #include "bsp/board_api.h"
 #include "tusb.h"
@@ -21,48 +48,11 @@ void drive_column(int column, int state)
 
 void drive_row(int row)
 {
-#if 0
-  switch(row)
-    {
-    case 0:
-      gpio_put(PIN_MUX_A, 0);
-      gpio_put(PIN_MUX_B, 0);
-      gpio_put(PIN_MUX_C, 0);
-      break;
-
-    case 1:
-      gpio_put(PIN_MUX_A, 1);
-      gpio_put(PIN_MUX_B, 0);
-      gpio_put(PIN_MUX_C, 0);
-      break;
-
-    case 2:
-      gpio_put(PIN_MUX_A, 0);
-      gpio_put(PIN_MUX_B, 1);
-      gpio_put(PIN_MUX_C, 0);
-      break;
-    
-    case 3:
-      gpio_put(PIN_MUX_A, 1);
-      gpio_put(PIN_MUX_B, 1);
-      gpio_put(PIN_MUX_C, 0);
-      break;
-    }
-#else
-
-#if 1
   gpio_put(PIN_MUX_A, (row & 1)>>0);
   gpio_put(PIN_MUX_B, (row & 2)>>1);
   gpio_put(PIN_MUX_C, (row & 4)>>2);
-#else
-  gpio_put(PIN_MUX_A, (parameter & 1)>>0);
-  gpio_put(PIN_MUX_B, (parameter & 2)>>1);
-  gpio_put(PIN_MUX_C, (parameter & 4)>>2);
-#endif
-#endif
-
-  //printf("\nSelecting row %d", row);
 }
+
 // This allows other code to insert keys into the key queue. Note: Core1
 // has to be the code that does this, and i tmust run on core1. So, put a key in this
 // location and wait for it to tuirn to KEY_NONE before putting another one there.
@@ -291,7 +281,7 @@ KEYMAP *key_map;
 // all, which we can do on a bit by bit basis, all at once as integers.
 //
 // We remove short presses, 
-#define MAX_INPUT_QUEUE  4
+#define MAX_INPUT_QUEUE  2
 #define MAX_PRESS_QUEUE  2
 
 MATRIX_MAP  input_queue[MAX_INPUT_QUEUE];
@@ -605,17 +595,17 @@ void key_scan(void)
 	  drive_column(c, 1);
 	}
 
-      sleep_ms(1);
+      //sleep_us(10);
       
       for(int c=0; c< NUM_COL; c++)
 	{
 	  drive_column(c, 0);
-	  sleep_ms(1);
+	  //sleep_ms(1);
       
 	  for(int r=0; r<NUM_ROW; r++)
 	    {
 	      drive_row(r);
-	      sleep_ms(1);
+	      //sleep_ms(1);
 	      int v = adc_read();
 	      v = adc_read();
 	  

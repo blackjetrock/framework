@@ -1,4 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////
+//
+// Macropad features
+//
+// Things to do with the top level aspect of being a macropad
+//
+//
+// There's an initialisation followed by a main loop
+//
+// Whatever is needed is set up and then processed in the loop.
+//
+//
+////////////////////////////////////////////////////////////////////////////////
+
 
 #include "bsp/board_api.h"
 #include "tusb.h"
@@ -9,6 +22,7 @@
 #include "keyboard.h"
 #include "serial.h"
 #include "i2c.h"
+#include "led.h"
 
 // Blink pattern
 enum
@@ -28,32 +42,32 @@ static uint32_t blink_interval_ms = BLINK_NOT_MOUNTED;
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-const uint PIN_MUX_ENABLE = 4;
+const uint PIN_SLEEP      = 0;
 const uint PIN_MUX_A      = 1;
 const uint PIN_MUX_B      = 2;
 const uint PIN_MUX_C      = 3;
+const uint PIN_MUX_ENABLE = 4;
+const uint PIN_UNUSED1    = 5;
+const uint PIN_UNUSED2    = 6;
 
-const uint PIN_UNUSED1  = 5;
-const uint PIN_UNUSED2  = 6;
+const uint PIN_KD0        = 8;
+const uint PIN_KD1        = 9;
+const uint PIN_KD2        = 10;
+const uint PIN_KD3        = 11;
+const uint PIN_KD4        = 12;
+const uint PIN_KD5        = 13;
+const uint PIN_KD6        = 14;
+const uint PIN_KD7        = 15;
+const uint PIN_KD13       = 16;
+const uint PIN_KD12       = 17;
+const uint PIN_KD11       = 18;
+const uint PIN_KD10       = 19;
+const uint PIN_KD9        = 20;
+const uint PIN_KD8        = 21;
+const uint PIN_KD15       = 22;
+const uint PIN_KD14       = 23;
 
-const uint PIN_KD0  = 8;
-const uint PIN_KD1  = 9;
-const uint PIN_KD2  = 10;
-const uint PIN_KD3  = 11;
-const uint PIN_KD4  = 12;
-const uint PIN_KD5  = 13;
-const uint PIN_KD6  = 14;
-const uint PIN_KD7  = 15;
-const uint PIN_KD8  = 21;
-const uint PIN_KD9  = 20;
-const uint PIN_KD10 = 19;
-const uint PIN_KD11 = 18;
-const uint PIN_KD12 = 17;
-const uint PIN_KD13 = 16;
-const uint PIN_KD14 = 23;
-const uint PIN_KD15 = 22;
-
-const uint PIN_ADC  = 28;
+const uint PIN_ADC        = 28;
 
 
 const int col[NUM_COL] =
@@ -127,6 +141,39 @@ void init_i2c(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+//
+// Functions on the arrow keys.
+//
+
+int arrow_keys[24] =
+  {
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_PAGE_UP,
+    HID_KEY_PAGE_DOWN,
+    
+    HID_KEY_HOME,
+    HID_KEY_PAGE_UP,
+    HID_KEY_PAGE_DOWN,
+    HID_KEY_END,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+    HID_KEY_NONE,
+  };
+
 
 int macro_keys[24] =
   {
@@ -156,6 +203,99 @@ int macro_keys[24] =
     HID_KEY_A,
   };
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//
+
+// Light key in blue
+void light_key_b(int k)
+{
+  if( k != MATRIX_KEY_NONE )
+    {
+      //      deliver_key(macro_keys[k]);
+      set_led_rgb(k, 0, 0x00, 0x00, 0x10);
+      
+    }
+}
+
+// Light key in green
+void light_key_g(int k)
+{
+  if( k != MATRIX_KEY_NONE )
+    {
+      //      deliver_key(macro_keys[k]);
+      set_led_rgb(k, 0, 0x00, 0x10, 0x00);
+      
+    }
+}
+
+// Light key in red
+void light_key_r(int k)
+{
+  if( k != MATRIX_KEY_NONE )
+    {
+      //      deliver_key(macro_keys[k]);
+      set_led_rgb(k, 0, 0x10, 0x00, 0x00);
+      
+    }
+}
+
+void init_null(void)
+{
+}
+
+// A mode that generates the fn shifted arrow keys
+
+void arrow_mode_setup(void)
+{
+  clr_led();
+  set_led_rgb(5, 0, 0x20, 0x00, 0x20);
+  set_led_rgb(6, 0, 0x20, 0x00, 0x20);
+  set_led_rgb(4, 0, 0x00, 0x10, 0x00);
+  set_led_rgb(7, 0, 0x00, 0x10, 0x00);
+}
+
+void arrow_mode(int k)
+{
+  deliver_key(arrow_keys[k]);
+}
+
+int current_mode = 0;
+
+typedef void (*MODE_PTR)(int k);
+
+MODE_PTR mode_ptr[] =
+  {
+    light_key_r,
+    light_key_g,
+    light_key_b,
+    arrow_mode,
+  };
+
+typedef void (*INIT_PTR)(void);
+
+INIT_PTR init_ptr[] =
+  {
+    init_null,
+    init_null,
+    init_null,
+    arrow_mode_setup,
+  };
+
+char *desc_ptr[] =
+  {
+    "Mode:Pressed leys turn on red   LED",
+    "Mode:Pressed leys turn on green LED",
+    "Mode:Pressed leys turn on blue  LED",
+    "Mode:unshifted arrow functions",
+  };
+
+#define NUM_MODES (sizeof(mode_ptr) / sizeof(MODE_PTR))
+
+void mode_handle_key(int k)
+{
+  (*mode_ptr[current_mode])(k);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -183,7 +323,7 @@ int main() {
     {
       loop_count++;
 
-      if( loop_count == 25000 )
+      if( loop_count == 2500 )
 	{
 	  if( !sent_banner )
 	    {
@@ -199,15 +339,23 @@ int main() {
       hid_task();
 
       char k = nos_get_key();
-      
-      if( k != MATRIX_KEY_NONE )
+
+      // Key code 0 cycles through the different modes
+      switch(k)
 	{
-	  deliver_key(macro_keys[k]);
-	  set_led_rgb(k, 0, 0x00, 0x00, 0x30);
+	case 0:
+	  current_mode = (current_mode+1) % NUM_MODES;
+	  (*init_ptr[current_mode])();
+	  printf("\n\n%s", desc_ptr[current_mode]);
+	  break;
+
+	case 255:
+	  break;
 	  
-	  //printf("\n%s:%d", __FUNCTION__, k);
+	default:
+	  mode_handle_key(k);
+	  break;
 	}
-      
     }
 }
 

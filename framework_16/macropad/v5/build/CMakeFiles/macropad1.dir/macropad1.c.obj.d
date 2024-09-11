@@ -116,4 +116,5 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: \
  /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h \
  /home/menadue/pico/framework/framework_16/macropad/v5/keyboard.h \
  /home/menadue/pico/framework/framework_16/macropad/v5/serial.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/i2c.h
+ /home/menadue/pico/framework/framework_16/macropad/v5/i2c.h \
+ /home/menadue/pico/framework/framework_16/macropad/v5/led.h

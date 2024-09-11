@@ -3918,7 +3918,8 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: ../macropad1.c \
   ../macropad_usb.h \
   ../keyboard.h \
   ../serial.h \
-  ../i2c.h
+  ../i2c.h \
+  ../led.h
 
 CMakeFiles/macropad1.dir/macropad_usb.c.obj: ../macropad_usb.c \
   ../macropad.h \

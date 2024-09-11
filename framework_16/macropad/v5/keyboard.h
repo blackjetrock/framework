@@ -22,46 +22,5 @@ extern KEYCODE kb_external_key;
 
 void key_scan(void);
 void drive_column(int column, int state);
-  void drive_row(int row);
+void drive_row(int row);
 
-
-
-#if 0
-int matrix_map[24] =
-  {
-    20, 6, 0, 0,    // 0
-    0, 0, 7, 0,     // 4
-    4, 0, 0, 0,     // 8
-    5, 0, 0, 0,     // 12
-    0, 0, 0, 0,     // 16
-    0, 0, 0, 0,     // 20
-  };
-
-5
-6
-16
-8
-12
-1
-6
-9
-13
-2
-9
-10
-14
-3
-7
-11
-15
-4
-10
-0
-0
-11
-5
-4
-
-
-
-#endif
