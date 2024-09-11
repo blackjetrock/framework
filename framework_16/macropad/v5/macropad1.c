@@ -248,6 +248,14 @@ void light_key_r(int k)
 void init_null(void)
 {
 }
+//------------------------------------------------------------------------------
+//
+// Countdown timer mode
+
+void timer_mode_setup(void)
+{
+
+}
 
 //------------------------------------------------------------------------------
 //
@@ -269,16 +277,25 @@ void arrow_mode_setup(void)
   set_led_rgb(21, 0, 0x00, 0x00, 0x10);
   set_led_rgb(22, 0, 0x00, 0x00, 0x10);
 
+  set_led_rgb(0, 0, 0x05, 0x00, 0x00);
+  set_led_rgb(1, 0, 0x00, 0x0a, 0x0a);
+    
+
 }
 
 void arrow_mode(int k)
 {
-  if( k == 1 )
+
+  switch(k)
     {
-      deliver_string("String");
-    }
+    case 1:
+      deliver_string("sudo minicom -D /dev/ttyACM0");
+      break;
   
-  deliver_key(arrow_keys[k]);
+    default:  
+      deliver_key(arrow_keys[k]);
+      break;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -533,8 +550,27 @@ int deliver_key_done(void)
   return(!key_being_sent);
 }
 
+
+uint8_t const conv_table[128][2] =  { HID_ASCII_TO_KEYCODE };
+
 int translate_to_hid(char ch)
 {
+  int ret = 0;
+  uint8_t modifier   = 0;
+  
+  if ( conv_table[ch][0] )
+    {
+    modifier = KEYBOARD_MODIFIER_LEFTSHIFT;
+    }
+  
+  ret  = conv_table[ch][1];
+  ret |= modifier << 8;
+  
+  return(ret);
+}
+
+#if 0
+
   int hidch;
   
   // Characters
@@ -552,7 +588,25 @@ int translate_to_hid(char ch)
       hidch |= (KEYBOARD_MODIFIER_LEFTSHIFT << 8);
       return(hidch);
     }
+
+  switch(ch)
+    {
+    case ' ':
+      return(HID_KEY_SPACE);
+      break;
+
+    case '/':
+      return(HID_KEY_SPACE);
+      break;
+
+    case '-':
+      return(HID_KEY_SPACE);
+      break;
+      
+    }
 }
+
+#endif
 
 void deliver_string(char *str)
 {
