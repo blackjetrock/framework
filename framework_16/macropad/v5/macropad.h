@@ -48,4 +48,6 @@ extern const int col[NUM_COL];
 void hid_task(void);
 int deliver_key(int key_to_deliver);
 int deliver_key_done(void);
+void deliver_string(char *str);
+
 

@@ -208,7 +208,11 @@ int macro_keys[24] =
 //
 //
 
+//------------------------------------------------------------------------------
+//
 // Light key in blue
+//
+
 void light_key_b(int k)
 {
   if( k != MATRIX_KEY_NONE )
@@ -245,6 +249,8 @@ void init_null(void)
 {
 }
 
+//------------------------------------------------------------------------------
+//
 // A mode that generates the fn shifted arrow keys
 
 void arrow_mode_setup(void)
@@ -267,8 +273,15 @@ void arrow_mode_setup(void)
 
 void arrow_mode(int k)
 {
+  if( k == 1 )
+    {
+      deliver_string("String");
+    }
+  
   deliver_key(arrow_keys[k]);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 int current_mode = 0;
 
@@ -450,10 +463,55 @@ int key = HID_KEY_NONE;
 // 0: not sent
 // 1: sent
 
+#define DELIVER_QUEUE_LENGTH  200
+int deliver_q_in  = 0;
+int deliver_q_out = 0;
+
+int deliver_queue[DELIVER_QUEUE_LENGTH];
+
+#define QUEUE_EMPTY (deliver_q_out == deliver_q_in)
+#define QUEUE_FULL (NEXT_Q_PTR(deliver_q_in) == deliver_q_out )
+#define NEXT_Q_PTR(PTR) ((PTR+1) % DELIVER_QUEUE_LENGTH)
+
+// A new key to send, queue it
+
+void queue_key(int k)
+{
+  if( QUEUE_FULL )
+    {
+      printf("\nQueue full");
+      return;
+    }
+
+  deliver_queue[deliver_q_in] = k;
+  deliver_q_in = NEXT_Q_PTR(deliver_q_in);
+
+  printf("\nQueued %d %04X", k, k);
+}
+
+int unqueue_key(void)
+{
+  int k;
+  
+  if( QUEUE_EMPTY )
+    {
+      //printf("\nQueue empty");
+      return(MATRIX_KEY_NONE);
+    }
+
+  k = deliver_queue[deliver_q_out];
+  deliver_q_out = NEXT_Q_PTR(deliver_q_out);
+  printf("\nUnqueued %d", k);
+  return(k);
+}
+
 int deliver_key(int key_to_deliver)
 {
   int ret = 0;
+  printf("\nDelivering %d", key_to_deliver);
+  queue_key(key_to_deliver);
 
+#if 0
   //printf("\n%s:%d", __FUNCTION__, key_to_deliver);
   
   if( deliver_key_done() )
@@ -464,14 +522,45 @@ int deliver_key(int key_to_deliver)
       key_being_sent = 1;
       ret = 1;
     }
-
-  return(ret);
+#endif
+  
+  return(1);
 }
 
 int deliver_key_done(void)
 {
   //printf("\n%s:%d", __FUNCTION__, !key_being_sent);
   return(!key_being_sent);
+}
+
+int translate_to_hid(char ch)
+{
+  int hidch;
+  
+  // Characters
+  if( (ch >= 'a') && (ch <= 'z') )
+    {
+      hidch = ch - 'a' + HID_KEY_A;
+      return(hidch);
+    }
+
+  if( (ch >= 'A') && (ch <= 'Z') )
+    {
+      hidch = ch - 'A' + HID_KEY_A;
+
+      // Add shift modifier
+      hidch |= (KEYBOARD_MODIFIER_LEFTSHIFT << 8);
+      return(hidch);
+    }
+}
+
+void deliver_string(char *str)
+{
+  while(*str != '\0' )
+    {
+      deliver_key( translate_to_hid(*str) );
+      str++;
+    }
 }
 
 
@@ -482,36 +571,6 @@ int deliver_key_done(void)
 
 static void send_hid_report(uint8_t report_id, uint32_t btn)
 {
-#if 0
-  if( key_being_sent )
-    {
-      keycnt++;  
-      
-      switch(keycnt)
-	{
-	case 1:
-	  printf("\n%s:1", __FUNCTION__);
-	  key = key_to_send;
-	  break;
-	  
-	  // Key has been pressed, now release it for a bit
-	case KEY_PRESSED_TICKS:
-	  printf("\n%s:2", __FUNCTION__);
-	  key = HID_KEY_NONE;
-	  break;
-	  
-	case KEY_PRESS_CYCLE_TICKS:
-	  keycnt = 0;
-	  key_being_sent = 0;
-	  printf("\n%s:3", __FUNCTION__);
-	  break;
-	  
-	default:
-	  break;
-	}
-    }
-#endif
-  
   // skip if hid is not ready yet
   if ( !tud_hid_ready() )
     return;
@@ -519,46 +578,24 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
   switch(report_id)
     {
     case REPORT_ID_KEYBOARD:
-#if 0
-      {
 
-	// use to avoid send multiple consecutive zero report for keyboard
-	static bool has_keyboard_key = false;
-
-	if ( btn,1 )
-	  {
-	    uint8_t keycode[6] = { 0 };
-	    keycode[0] = key;
-
-	    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
-	    key = HID_KEY_NONE;
-	    has_keyboard_key = true;
-	  }
-	else
-	  {
-	    // send empty key report if previously has key pressed
-	    if (has_keyboard_key)
-	      {
-		tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
-	      }
-	    has_keyboard_key = false;
-	  }
-      }
-#endif
-
-      if( key_being_sent && (key_to_send != MATRIX_KEY_NONE) )
+      if( (key_to_send = unqueue_key()) != MATRIX_KEY_NONE)
 	{
-	  uint8_t keycode[6] = { 0 };
-	  keycode[0] = key_to_send;
+	  // Keycode could have a modifier in upper bits
+	  uint8_t modifier = (key_to_send >> 8);
+	  uint8_t k = (key_to_send & 0xFF);
 	  
-	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+	  uint8_t keycode[6] = { 0 };
+	  keycode[0] = k;
+	  printf("\nk:%d %02X mod:%d %02X", k, k, modifier, modifier);
+	  
+	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, modifier, keycode);
 	}
       else
 	{
 	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
 	}
       
-      key_being_sent = 0;
       break;
 
     case REPORT_ID_MOUSE:
