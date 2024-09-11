@@ -117,4 +117,8 @@ CMakeFiles/macropad1.dir/macropad1.c.obj: \
  /home/menadue/pico/framework/framework_16/macropad/v5/keyboard.h \
  /home/menadue/pico/framework/framework_16/macropad/v5/serial.h \
  /home/menadue/pico/framework/framework_16/macropad/v5/i2c.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/led.h
+ /home/menadue/pico/framework/framework_16/macropad/v5/led.h \
+ /home/menadue/pico/framework/framework_16/macropad/v5/sleep.h \
+ /home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/include/hardware/rtc.h \
+ /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/rtc.h \
+ /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/rtc.h

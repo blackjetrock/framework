@@ -34,6 +34,7 @@ extern const uint PIN_KD14;
 extern const uint PIN_KD15;
 
 extern const uint PIN_ADC;
+extern const uint PIN_SDB;
 
 #define NUM_ROW  4
 #define NUM_COL 16

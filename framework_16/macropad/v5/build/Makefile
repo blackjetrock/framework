@@ -1096,6 +1096,30 @@ home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.obj: home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.obj
+
+# target to build an object file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj
+
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.i: home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.i
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.i
+
+# target to preprocess a source file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.i
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.i
+
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.s: home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.s
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.s
+
+# target to generate assembly for a file
+home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.s
+.PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.s
+
 home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 .PHONY : home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj
 
@@ -2104,6 +2128,30 @@ msc_disk.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/msc_disk.c.s
 .PHONY : msc_disk.c.s
 
+rosc.obj: rosc.c.obj
+.PHONY : rosc.obj
+
+# target to build an object file
+rosc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/rosc.c.obj
+.PHONY : rosc.c.obj
+
+rosc.i: rosc.c.i
+.PHONY : rosc.i
+
+# target to preprocess a source file
+rosc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/rosc.c.i
+.PHONY : rosc.c.i
+
+rosc.s: rosc.c.s
+.PHONY : rosc.s
+
+# target to generate assembly for a file
+rosc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/rosc.c.s
+.PHONY : rosc.c.s
+
 serial.obj: serial.c.obj
 .PHONY : serial.obj
 
@@ -2127,6 +2175,30 @@ serial.s: serial.c.s
 serial.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/serial.c.s
 .PHONY : serial.c.s
+
+sleep.obj: sleep.c.obj
+.PHONY : sleep.obj
+
+# target to build an object file
+sleep.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/sleep.c.obj
+.PHONY : sleep.c.obj
+
+sleep.i: sleep.c.i
+.PHONY : sleep.i
+
+# target to preprocess a source file
+sleep.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/sleep.c.i
+.PHONY : sleep.c.i
+
+sleep.s: sleep.c.s
+.PHONY : sleep.s
+
+# target to generate assembly for a file
+sleep.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/macropad1.dir/build.make CMakeFiles/macropad1.dir/sleep.c.s
+.PHONY : sleep.c.s
 
 usb_descriptors.obj: usb_descriptors.c.obj
 .PHONY : usb_descriptors.obj
@@ -2280,6 +2352,9 @@ help:
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.obj"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.i"
+	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.s"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i"
 	@echo "... home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s"
@@ -2406,9 +2481,15 @@ help:
 	@echo "... msc_disk.obj"
 	@echo "... msc_disk.i"
 	@echo "... msc_disk.s"
+	@echo "... rosc.obj"
+	@echo "... rosc.i"
+	@echo "... rosc.s"
 	@echo "... serial.obj"
 	@echo "... serial.i"
 	@echo "... serial.s"
+	@echo "... sleep.obj"
+	@echo "... sleep.i"
+	@echo "... sleep.s"
 	@echo "... usb_descriptors.obj"
 	@echo "... usb_descriptors.i"
 	@echo "... usb_descriptors.s"

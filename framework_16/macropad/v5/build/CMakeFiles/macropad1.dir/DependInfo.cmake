@@ -147,6 +147,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/menadue/pico/pico-sdk/src/rp2040/boot_stage2/include"
   "/home/menadue/pico/pico-sdk/src/common/boot_picobin_headers/include"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include"
+  "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/include"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_adc/include"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   )
@@ -191,6 +192,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d"
+  "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/rtc.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/hardware_ticks/ticks.c" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj.d"
@@ -229,7 +231,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/menadue/pico/framework/framework_16/macropad/v5/macropad1.c" "CMakeFiles/macropad1.dir/macropad1.c.obj" "gcc" "CMakeFiles/macropad1.dir/macropad1.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.c" "CMakeFiles/macropad1.dir/macropad_usb.c.obj" "gcc" "CMakeFiles/macropad1.dir/macropad_usb.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/msc_disk.c" "CMakeFiles/macropad1.dir/msc_disk.c.obj" "gcc" "CMakeFiles/macropad1.dir/msc_disk.c.obj.d"
+  "/home/menadue/pico/framework/framework_16/macropad/v5/rosc.c" "CMakeFiles/macropad1.dir/rosc.c.obj" "gcc" "CMakeFiles/macropad1.dir/rosc.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/serial.c" "CMakeFiles/macropad1.dir/serial.c.obj" "gcc" "CMakeFiles/macropad1.dir/serial.c.obj.d"
+  "/home/menadue/pico/framework/framework_16/macropad/v5/sleep.c" "CMakeFiles/macropad1.dir/sleep.c.obj" "gcc" "CMakeFiles/macropad1.dir/sleep.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/usb_descriptors.c" "CMakeFiles/macropad1.dir/usb_descriptors.c.obj" "gcc" "CMakeFiles/macropad1.dir/usb_descriptors.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj.d"
   )

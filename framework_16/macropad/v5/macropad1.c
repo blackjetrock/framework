@@ -12,7 +12,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "bsp/board_api.h"
 #include "tusb.h"
 
@@ -23,6 +22,7 @@
 #include "serial.h"
 #include "i2c.h"
 #include "led.h"
+#include "sleep.h"
 
 // Blink pattern
 enum
@@ -68,7 +68,7 @@ const uint PIN_KD15       = 22;
 const uint PIN_KD14       = 23;
 
 const uint PIN_ADC        = 28;
-
+const uint PIN_SDB        = 29;
 
 const int col[NUM_COL] =
   {
@@ -113,8 +113,9 @@ void init_gpios(void)
   gpio_set_out(PIN_MUX_ENABLE);
   gpio_put(PIN_MUX_ENABLE, 0);
 
-  gpio_set_out(29);
-  gpio_put(29, 1);
+  // SDB on the LED driver needs to be high to turn LEDs off
+  gpio_set_out(PIN_SDB);
+  gpio_put(PIN_SDB, 1);
   
   gpio_set_out(PIN_MUX_A);
   gpio_set_out(PIN_MUX_B);
@@ -164,14 +165,14 @@ int arrow_keys[24] =
     HID_KEY_NONE,
     HID_KEY_NONE,
     HID_KEY_NONE,
+    HID_KEY_NONE,           //16
+    HID_KEY_ARROW_UP,
     HID_KEY_NONE,
     HID_KEY_NONE,
-    HID_KEY_NONE,
-    HID_KEY_NONE,
-    HID_KEY_NONE,
-    HID_KEY_NONE,
-    HID_KEY_NONE,
-    HID_KEY_NONE,
+    HID_KEY_ARROW_LEFT,     //20
+    HID_KEY_ARROW_DOWN,
+    HID_KEY_ARROW_RIGHT,
+    HID_KEY_NONE,           //23
   };
 
 
@@ -249,10 +250,19 @@ void init_null(void)
 void arrow_mode_setup(void)
 {
   clr_led();
+
+  // Home, page up, page down, end
   set_led_rgb(5, 0, 0x20, 0x00, 0x20);
   set_led_rgb(6, 0, 0x20, 0x00, 0x20);
   set_led_rgb(4, 0, 0x00, 0x10, 0x00);
   set_led_rgb(7, 0, 0x00, 0x10, 0x00);
+
+  // Arrow keys
+  set_led_rgb(17, 0, 0x00, 0x00, 0x10);
+  set_led_rgb(20, 0, 0x00, 0x00, 0x10);
+  set_led_rgb(21, 0, 0x00, 0x00, 0x10);
+  set_led_rgb(22, 0, 0x00, 0x00, 0x10);
+
 }
 
 void arrow_mode(int k)
@@ -266,28 +276,28 @@ typedef void (*MODE_PTR)(int k);
 
 MODE_PTR mode_ptr[] =
   {
+    arrow_mode,
     light_key_r,
     light_key_g,
     light_key_b,
-    arrow_mode,
   };
 
 typedef void (*INIT_PTR)(void);
 
 INIT_PTR init_ptr[] =
   {
-    init_null,
-    init_null,
-    init_null,
     arrow_mode_setup,
+    init_null,
+    init_null,
+    init_null,
   };
 
 char *desc_ptr[] =
   {
-    "Mode:Pressed leys turn on red   LED",
-    "Mode:Pressed leys turn on green LED",
-    "Mode:Pressed leys turn on blue  LED",
     "Mode:unshifted arrow functions",
+    "Mode:Pressed keys turn on red   LED",
+    "Mode:Pressed keys turn on green LED",
+    "Mode:Pressed keys turn on blue  LED",
   };
 
 #define NUM_MODES (sizeof(mode_ptr) / sizeof(MODE_PTR))
@@ -318,9 +328,32 @@ int main() {
   // Main loop
   int loop_count = 0;
   int sent_banner = 0;
-  
+
+  (*init_ptr[current_mode])();
+  printf("\n\n%s", desc_ptr[current_mode]);
+
   while(1)
     {
+      // Check for sleep. If low then go to sleep
+      if( gpio_get(PIN_SLEEP) )
+	{
+	  // No need to go to sleep
+	}
+      else
+	{
+	  printf("\nSleeping...");
+	  
+	  // Turn LEDs off
+	  gpio_put(PIN_SDB, 0);
+
+	  // Enter sleep mode, with a wakeup on sleep going high again
+	  // so set up for edge triggered and high (rising edge)
+	  sleep_goto_dormant_until_pin(PIN_SLEEP, 1, 1);
+
+	  gpio_put(PIN_SDB, 1);
+	  printf("\nWoken up");
+	}
+      
       loop_count++;
 
       if( loop_count == 2500 )
@@ -473,8 +506,8 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
 	  printf("\n%s:3", __FUNCTION__);
 	  break;
 	  
-    default:
-      break;
+	default:
+	  break;
 	}
     }
 #endif
@@ -506,7 +539,7 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
 	    // send empty key report if previously has key pressed
 	    if (has_keyboard_key)
 	      {
-	      tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+		tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
 	      }
 	    has_keyboard_key = false;
 	  }

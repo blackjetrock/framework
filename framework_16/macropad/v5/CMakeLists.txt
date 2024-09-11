@@ -19,6 +19,8 @@ add_executable(macropad1
   msc_disk.c
   keyboard.c
   led.c
+  sleep.c
+  rosc.c
   )
 
 pico_enable_stdio_usb(macropad1 1)
@@ -27,6 +29,8 @@ pico_enable_stdio_usb(macropad1 1)
 pico_add_extra_outputs(macropad1)
 target_link_libraries(macropad1
   pico_stdlib
+  hardware_clocks
+  hardware_rtc
   hardware_adc
   hardware_gpio
   hardware_i2c
