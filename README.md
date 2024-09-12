@@ -30,7 +30,7 @@ Sets up LEDs and keys:
   * Blue:   LEFT, RIGHT, UP, DOWN
   * Cyan:   minicom -D /dev/ttyACM0
 
-Video here of keys being pressed and LEDs being lit:
 
-https://www.youtube.com/watch?v=P2B2t0fApKs
+## Videos
 
+https://www.youtube.com/watch?v=9jJmbEcvwuo&t=39s
