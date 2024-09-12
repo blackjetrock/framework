@@ -15,7 +15,9 @@ This can be done in the serial CLI of the firmware, or if the mode needs to be f
 <img src="https://github.com/user-attachments/assets/fb47f64d-cf3e-4d0f-a3de-08ecaf15d2c9" width="300"/>
 
 ## Default Modes
-I have some code that sets up modes I want. You can add whatever you need.
+I have some code that sets up modes I want. You can add whatever you need. 
+
+The top left key cycles through the modes.
 
 ### Initial modes
 
@@ -26,7 +28,7 @@ Sets up LEDs and keys:
   * Green:  HOME and END
   * Purple: PAGE UP and PAGE DOWN
   * Blue:   LEFT, RIGHT, UP, DOWN
-
+  * Cyan:   minicom -D /dev/ttyACM0
 
 Video here of keys being pressed and LEDs being lit:
 
