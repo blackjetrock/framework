@@ -18,6 +18,9 @@ This can be done in the serial CLI of the firmware, or if the mode needs to be f
 I have some code that sets up modes I want. You can add whatever you need.
 
 ### Initial modes
+
+<img src="https://github.com/user-attachments/assets/c4d863d0-c671-4f58-890f-0a276b3eb132" width="300"/>
+
 Sets up LEDs and keys:
 
   * Green:  HOME and END
