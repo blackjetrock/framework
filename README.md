@@ -30,9 +30,9 @@ Sets up LEDs and keys:
   * Blue:   LEFT, RIGHT, UP, DOWN
   * Cyan:   minicom -D /dev/ttyACM0
 
-### Number Mode
+### Number Mode (still working on this)
 
-![IMG_20240912_065953683](https://github.com/user-attachments/assets/b7caa5f4-c162-405c-bea7-faf21405c396)
+<img src="https://github.com/user-attachments/assets/b7caa5f4-c162-405c-bea7-faf21405c396" width="300"/>
 
 This mode sends incrementing numbers in hex or decimal, with or without spaces
 
