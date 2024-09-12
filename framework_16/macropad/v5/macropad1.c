@@ -248,6 +248,66 @@ void light_key_r(int k)
 void init_null(void)
 {
 }
+
+
+//------------------------------------------------------------------------------
+//
+// Incremented number mode
+//
+
+void number_mode_setup()
+{
+  clr_led();
+
+  // Home, page up, page down, end
+  set_led_rgb(20, 0, 0x20, 0x00, 0x20);
+  set_led_rgb(21, 0, 0x20, 0x00, 0x00);
+  set_led_rgb(16, 0, 0x00, 0x10, 0x20);
+  set_led_rgb(17, 0, 0x00, 0x10, 0x00);
+
+}
+
+// Send numbers, with post incrementing
+// With and without spaces or commas
+
+int current_integer = 0;
+int current_delta = 1;
+
+void number_mode(int k)
+{
+  char num_str[100];
+  
+  switch(k)
+    {
+    case 20:
+      sprintf(num_str, "%d", current_integer);    
+      deliver_string(num_str);
+      current_integer += current_delta;
+      break;
+
+    case 21:
+      sprintf(num_str, "%d ", current_integer);    
+      deliver_string(num_str);
+      current_integer += current_delta;
+      break;
+
+    case 16:
+      sprintf(num_str, "%X", current_integer);    
+      deliver_string(num_str);
+      current_integer += current_delta;
+      break;
+
+    case 17:
+      sprintf(num_str, "%X ", current_integer);    
+      deliver_string(num_str);
+      current_integer += current_delta;
+      break;
+
+    default:  
+      break;
+    }
+}
+
 //------------------------------------------------------------------------------
 //
 // Countdown timer mode
@@ -291,6 +351,14 @@ void arrow_mode(int k)
     case 1:
       deliver_string("sudo minicom -D /dev/ttyACM0");
       break;
+
+    case 2:
+      deliver_string("B BB BBB BBBB BBBBB BBBBBB BBBBBBB\n");
+      break;
+
+    case 3:
+      deliver_string("AA__AA__AA__AA__AA__AA__AA__AA__AA__AA__AA__AA__AA__\n");
+      break;
   
     default:  
       deliver_key(arrow_keys[k]);
@@ -307,6 +375,7 @@ typedef void (*MODE_PTR)(int k);
 MODE_PTR mode_ptr[] =
   {
     arrow_mode,
+    number_mode,
     light_key_r,
     light_key_g,
     light_key_b,
@@ -317,6 +386,7 @@ typedef void (*INIT_PTR)(void);
 INIT_PTR init_ptr[] =
   {
     arrow_mode_setup,
+    number_mode_setup,
     init_null,
     init_null,
     init_null,
@@ -325,6 +395,7 @@ INIT_PTR init_ptr[] =
 char *desc_ptr[] =
   {
     "Mode:unshifted arrow functions",
+    "Mode:Number mode",
     "Mode:Pressed keys turn on red   LED",
     "Mode:Pressed keys turn on green LED",
     "Mode:Pressed keys turn on blue  LED",
@@ -488,22 +559,45 @@ int deliver_queue[DELIVER_QUEUE_LENGTH];
 
 #define QUEUE_EMPTY (deliver_q_out == deliver_q_in)
 #define QUEUE_FULL (NEXT_Q_PTR(deliver_q_in) == deliver_q_out )
+#define QUEUE_FULL2 (NEXT_Q_PTR(NEXT_Q_PTR(deliver_q_in)) == deliver_q_out )
 #define NEXT_Q_PTR(PTR) ((PTR+1) % DELIVER_QUEUE_LENGTH)
 
 // A new key to send, queue it
+// We can't send two identical keys in consecutive reports as it
+// will look like the key is just held down, so we insert a no key
+// report between them
+
+int last_key = MATRIX_KEY_NONE;
 
 void queue_key(int k)
 {
-  if( QUEUE_FULL )
+  // We want two slots so we can insert NO_KEY if needed
+  if( QUEUE_FULL2 || QUEUE_FULL )
     {
-      printf("\nQueue full");
+      //printf("\nQueue full");
       return;
+    }
+
+  // Put a no key report before this key so it separates it from the
+  // previous key if it was the same as this one.
+  //printf("\nLast key:%04X key:%04X", last_key, k);
+  if(last_key == k )
+    {
+      // No key report between pairs of keys
+      deliver_queue[deliver_q_in] = MATRIX_KEY_NONE;
+      deliver_q_in = NEXT_Q_PTR(deliver_q_in);
+      //printf("\nQueued %d %04X ***", MATRIX_KEY_NONE, MATRIX_KEY_NONE);
+
     }
 
   deliver_queue[deliver_q_in] = k;
   deliver_q_in = NEXT_Q_PTR(deliver_q_in);
 
-  printf("\nQueued %d %04X", k, k);
+
+  last_key = k;  
+  
+  //printf("\nQueued %d %04X", k, k);
+  
 }
 
 int unqueue_key(void)
@@ -518,14 +612,14 @@ int unqueue_key(void)
 
   k = deliver_queue[deliver_q_out];
   deliver_q_out = NEXT_Q_PTR(deliver_q_out);
-  printf("\nUnqueued %d", k);
+  //printf("\nUnqueued %d", k);
   return(k);
 }
 
 int deliver_key(int key_to_deliver)
 {
   int ret = 0;
-  printf("\nDelivering %d", key_to_deliver);
+  //printf("\nDelivering %d", key_to_deliver);
   queue_key(key_to_deliver);
 
 #if 0
@@ -641,7 +735,7 @@ static void send_hid_report(uint8_t report_id, uint32_t btn)
 	  
 	  uint8_t keycode[6] = { 0 };
 	  keycode[0] = k;
-	  printf("\nk:%d %02X mod:%d %02X", k, k, modifier, modifier);
+	  //printf("\nk:%d %02X mod:%d %02X", k, k, modifier, modifier);
 	  
 	  tud_hid_keyboard_report(REPORT_ID_KEYBOARD, modifier, keycode);
 	}
