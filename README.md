@@ -32,7 +32,7 @@ Sets up LEDs and keys:
 
 ### Number Mode (still working on this)
 
-<img src="https://github.com/user-attachments/assets/b7caa5f4-c162-405c-bea7-faf21405c396" width="300"/>
+<img src="https://github.com/user-attachments/assets/a5403a29-3baa-4f6d-b742-6059c2c95c4a" width="300"/>
 
 This mode sends incrementing numbers in hex or decimal, with or without spaces
 
