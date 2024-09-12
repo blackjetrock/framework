@@ -19,7 +19,7 @@ I have some code that sets up modes I want. You can add whatever you need.
 
 The top left key cycles through the modes.
 
-### Initial modes
+### Initial mode
 
 <img src="https://github.com/user-attachments/assets/c4d863d0-c671-4f58-890f-0a276b3eb132" width="300"/>
 
@@ -30,6 +30,16 @@ Sets up LEDs and keys:
   * Blue:   LEFT, RIGHT, UP, DOWN
   * Cyan:   minicom -D /dev/ttyACM0
 
+### Number Mode
+
+![IMG_20240912_065953683](https://github.com/user-attachments/assets/b7caa5f4-c162-405c-bea7-faf21405c396)
+
+This mode sends incrementing numbers in hex or decimal, with or without spaces
+
+* Green:   Hex, trailing space
+* Purple:  Decimal, no space
+* Red:     Decimal, trailing space
+  
 
 ## Videos
 
