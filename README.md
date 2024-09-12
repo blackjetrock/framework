@@ -36,10 +36,12 @@ Sets up LEDs and keys:
 
 This mode sends incrementing numbers in hex or decimal, with or without spaces
 
+* Blue:    Hex, no space  
 * Green:   Hex, trailing space
 * Purple:  Decimal, no space
 * Red:     Decimal, trailing space
-  
+
+  The number is auto-incremented after each keypress
 
 ## Videos
 
