@@ -337,10 +337,8 @@ void arrow_mode_setup(void)
   set_led_rgb(21, 0, 0x00, 0x00, 0x10);
   set_led_rgb(22, 0, 0x00, 0x00, 0x10);
 
-  set_led_rgb(0, 0, 0x05, 0x00, 0x00);
-  set_led_rgb(1, 0, 0x00, 0x0a, 0x0a);
-    
-
+  set_led_rgb(8, 0, 0x00, 0x0a, 0x0a);
+  set_led_rgb(9, 0, 0x00, 0x20, 0x10);
 }
 
 void arrow_mode(int k)
@@ -348,12 +346,12 @@ void arrow_mode(int k)
 
   switch(k)
     {
-    case 1:
+    case 8:
       deliver_string("sudo minicom -D /dev/ttyACM0");
       break;
 
-    case 2:
-      deliver_string("B BB BBB BBBB BBBBB BBBBBB BBBBBBB\n");
+    case 9:
+      deliver_string("git commit -a");
       break;
 
     case 3:
@@ -491,12 +489,25 @@ int main() {
 
       char k = nos_get_key();
 
-      // Key code 0 cycles through the different modes
+      // The top row of keys are a binary representation of the mode
+      // number of the current mode.
+      
+      // Key code 3 increments the different mode number
       switch(k)
 	{
-	case 0:
+	case 03:
 	  current_mode = (current_mode+1) % NUM_MODES;
 	  (*init_ptr[current_mode])();
+
+	  for(int i=0; i<4; i++)
+	    {
+	      int bit = (1<<i) & current_mode;
+	      bit = !!bit;
+#define RGB 0x20
+	      
+	      set_led_rgb(3-i, 0, bit*RGB, bit*RGB, bit*RGB);
+	    }
+	  
 	  printf("\n\n%s", desc_ptr[current_mode]);
 	  break;
 
