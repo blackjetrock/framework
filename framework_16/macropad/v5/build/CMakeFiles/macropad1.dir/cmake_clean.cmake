@@ -174,6 +174,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/macropad1.dir/sleep.c.obj.d"
   "CMakeFiles/macropad1.dir/usb_descriptors.c.obj"
   "CMakeFiles/macropad1.dir/usb_descriptors.c.obj.d"
+  "CMakeFiles/macropad1.dir/usb_utility.c.obj"
+  "CMakeFiles/macropad1.dir/usb_utility.c.obj.d"
   "macropad1.elf"
   "macropad1.pdb"
 )

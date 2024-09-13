@@ -51,3 +51,8 @@ int deliver_key_done(void);
 void deliver_string(char *str);
 
 
+extern int key_to_send;
+void queue_key(int k);
+int unqueue_key(void);
+int deliver_key(int key_to_deliver);
+

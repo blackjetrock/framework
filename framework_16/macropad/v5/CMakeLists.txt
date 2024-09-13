@@ -15,12 +15,13 @@ add_executable(macropad1
   serial.c
   i2c.c
   macropad_usb.c
-  usb_descriptors.c
-  msc_disk.c
   keyboard.c
   led.c
   sleep.c
   rosc.c
+  usb_descriptors.c
+  msc_disk.c
+  usb_utility.c
   )
 
 pico_enable_stdio_usb(macropad1 1)

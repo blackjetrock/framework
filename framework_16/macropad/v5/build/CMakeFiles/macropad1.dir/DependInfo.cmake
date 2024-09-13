@@ -235,6 +235,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/menadue/pico/framework/framework_16/macropad/v5/serial.c" "CMakeFiles/macropad1.dir/serial.c.obj" "gcc" "CMakeFiles/macropad1.dir/serial.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/sleep.c" "CMakeFiles/macropad1.dir/sleep.c.obj" "gcc" "CMakeFiles/macropad1.dir/sleep.c.obj.d"
   "/home/menadue/pico/framework/framework_16/macropad/v5/usb_descriptors.c" "CMakeFiles/macropad1.dir/usb_descriptors.c.obj" "gcc" "CMakeFiles/macropad1.dir/usb_descriptors.c.obj.d"
+  "/home/menadue/pico/framework/framework_16/macropad/v5/usb_utility.c" "CMakeFiles/macropad1.dir/usb_utility.c.obj" "gcc" "CMakeFiles/macropad1.dir/usb_utility.c.obj.d"
   "/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj" "gcc" "CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj.d"
   )
 
