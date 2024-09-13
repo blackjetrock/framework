@@ -444,13 +444,30 @@ int main() {
 	{
 	  printf("\nSleeping...");
 	  
-	  // Turn LEDs off
-	  gpio_put(PIN_SDB, 0);
 
 	  // Enter sleep mode, with a wakeup on sleep going high again
 	  // so set up for edge triggered and high (rising edge)
+#if 1
+	  	  // Turn LEDs off
+	  gpio_put(PIN_SDB, 0);
+	  
 	  sleep_goto_dormant_until_pin(PIN_SLEEP, 1, 1);
-
+#else
+	  int sleeping = 1;
+	  
+	  while(sleeping)
+	    {
+	      set_led_rgb(3, 0, 0x00, 0x80, 0x00);
+	      sleep_ms(500);
+	      set_led_rgb(3, 0, 0x00, 0x00, 0x00);
+	      sleep_ms(500);
+	      if( gpio_get(PIN_SLEEP) )
+		{
+		  // Exit sleep mode
+		  break;
+		}
+	    }
+#endif
 	  gpio_put(PIN_SDB, 1);
 	  printf("\nWoken up");
 	}
@@ -929,12 +946,14 @@ void tud_umount_cb(void)
 void tud_suspend_cb(bool remote_wakeup_en)
 {
   (void)remote_wakeup_en;
-  blink_interval_ms = BLINK_SUSPENDED;
+  gpio_put(PIN_SDB, 0);
+  
+
 }
 
 // Invoked when usb bus is resumed
 void tud_resume_cb(void)
 {
-  blink_interval_ms = BLINK_MOUNTED;
+  gpio_put(PIN_SDB, 1);
 }
 
