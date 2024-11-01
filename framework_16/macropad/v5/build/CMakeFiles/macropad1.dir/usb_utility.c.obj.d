@@ -1,5 +1,5 @@
 CMakeFiles/macropad1.dir/usb_utility.c.obj: \
- /home/menadue/pico/framework/framework_16/macropad/v5/usb_utility.c \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/usb_utility.c \
  /home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/board_api.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/include/newlib/inttypes.h /usr/include/newlib/newlib.h \
@@ -28,7 +28,7 @@ CMakeFiles/macropad1.dir/usb_utility.c.obj: \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/./tusb_config.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/./tusb_config.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_mcu.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
@@ -42,9 +42,9 @@ CMakeFiles/macropad1.dir/usb_utility.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/types.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/assert.h \
  /usr/include/newlib/assert.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
  /home/menadue/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/menadue/pico/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
@@ -77,8 +77,8 @@ CMakeFiles/macropad1.dir/usb_utility.c.obj: \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/class/msc/msc.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/usb_descriptors.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/usb_descriptors.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad.h \
  /home/menadue/pico/pico-sdk/src/common/pico_stdlib_headers/include/pico/stdlib.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
@@ -113,12 +113,12 @@ CMakeFiles/macropad1.dir/usb_utility.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/keyboard.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/serial.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/i2c.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/led.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/sleep.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad_usb.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/keyboard.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/serial.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/i2c.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/led.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/sleep.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/include/hardware/rtc.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/rtc.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/rtc.h

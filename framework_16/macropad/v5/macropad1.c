@@ -326,8 +326,10 @@ void arrow_mode_setup(void)
   set_led_rgb(21, 0, 0x00, 0x00, 0x10);
   set_led_rgb(22, 0, 0x00, 0x00, 0x10);
 
-  set_led_rgb(8, 0, 0x00, 0x0a, 0x0a);
-  set_led_rgb(9, 0, 0x00, 0x20, 0x10);
+  set_led_rgb(8,  0, 0x00, 0x0a, 0x0a);
+  set_led_rgb(9,  0, 0x30, 0x20, 0x10);
+  set_led_rgb(10, 0, 0x20, 0x0a, 0x0a);
+  set_led_rgb(11, 0, 0x20, 0x20, 0x10);
 }
 
 void arrow_mode(int k)
@@ -341,6 +343,14 @@ void arrow_mode(int k)
 
     case 9:
       deliver_string("git commit -a");
+      break;
+
+    case 10:
+      deliver_string("////////////////////////////////////////////////////////////////////////////////\n");
+      break;
+
+    case 11:
+      deliver_string("//------------------------------------------------------------------------------\n");
       break;
 
     case 3:

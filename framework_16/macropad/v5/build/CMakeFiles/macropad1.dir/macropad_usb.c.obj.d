@@ -1,6 +1,6 @@
 CMakeFiles/macropad1.dir/macropad_usb.c.obj: \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.c \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad_usb.c \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -24,9 +24,9 @@ CMakeFiles/macropad1.dir/macropad_usb.c.obj: \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/include/newlib/assert.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
  /home/menadue/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/menadue/pico/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
@@ -77,7 +77,7 @@ CMakeFiles/macropad1.dir/macropad_usb.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad_usb.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/hw/bsp/board_api.h \
  /usr/include/newlib/inttypes.h /usr/include/newlib/sys/_intsup.h \
  /usr/include/newlib/sys/_locale.h /usr/include/newlib/string.h \
@@ -86,7 +86,7 @@ CMakeFiles/macropad1.dir/macropad_usb.c.obj: \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/./tusb_config.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/./tusb_config.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_mcu.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \

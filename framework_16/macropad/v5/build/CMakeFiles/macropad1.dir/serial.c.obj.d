@@ -1,5 +1,5 @@
 CMakeFiles/macropad1.dir/serial.c.obj: \
- /home/menadue/pico/framework/framework_16/macropad/v5/serial.c \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/serial.c \
  /usr/include/newlib/ctype.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -28,9 +28,9 @@ CMakeFiles/macropad1.dir/serial.c.obj: \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/include/newlib/assert.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
  /home/menadue/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/menadue/pico/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
@@ -78,9 +78,9 @@ CMakeFiles/macropad1.dir/serial.c.obj: \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom_constants.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/lock.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_boot_lock/include/hardware/boot_lock.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/i2c.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/led.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/i2c.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/led.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
@@ -88,5 +88,5 @@ CMakeFiles/macropad1.dir/serial.c.obj: \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
  /home/menadue/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/macropad_usb.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/keyboard.h
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/macropad_usb.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/keyboard.h

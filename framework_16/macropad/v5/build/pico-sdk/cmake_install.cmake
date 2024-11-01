@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/menadue/pico/framework/framework_16/macropad/v5/build/pico-sdk/tools/cmake_install.cmake")
+  include("/home/menadue/tree/github/framework/framework_16/macropad/v5/build/pico-sdk/tools/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/menadue/pico/framework/framework_16/macropad/v5/build/pico-sdk/src/cmake_install.cmake")
+  include("/home/menadue/tree/github/framework/framework_16/macropad/v5/build/pico-sdk/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/menadue/pico/framework/framework_16/macropad/v5/build/pico-sdk/docs/cmake_install.cmake")
+  include("/home/menadue/tree/github/framework/framework_16/macropad/v5/build/pico-sdk/docs/cmake_install.cmake")
 endif()
 

@@ -1,5 +1,5 @@
 CMakeFiles/macropad1.dir/sleep.c.obj: \
- /home/menadue/pico/framework/framework_16/macropad/v5/sleep.c \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/sleep.c \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/types.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/assert.h \
@@ -10,9 +10,9 @@ CMakeFiles/macropad1.dir/sleep.c.obj: \
  /usr/include/newlib/sys/features.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
  /home/menadue/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/menadue/pico/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
@@ -57,7 +57,7 @@ CMakeFiles/macropad1.dir/sleep.c.obj: \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/sleep.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/sleep.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/hardware_rtc/include/hardware/rtc.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/rtc.h \
  /home/menadue/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/rtc.h \

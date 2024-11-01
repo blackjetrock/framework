@@ -2,7 +2,7 @@ CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/ras
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/./tusb_config.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/./tusb_config.h \
  /home/menadue/pico/pico-sdk/lib/tinyusb/src/common/tusb_mcu.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/types.h \
@@ -14,9 +14,9 @@ CMakeFiles/macropad1.dir/home/menadue/pico/pico-sdk/lib/tinyusb/src/portable/ras
  /usr/include/newlib/sys/features.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/version.h \
  /home/menadue/pico/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
- /home/menadue/pico/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
+ /home/menadue/tree/github/framework/framework_16/macropad/v5/build/generated/pico_base/pico/config_autogen.h \
  /home/menadue/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/menadue/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/menadue/pico/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h \
